@@ -9,13 +9,8 @@ import UIKit
 
 class buyView : LoginHomeVC {
     
-    @IBOutlet weak var imageViewIM: UIImageView!
-    
     var radius = 22
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        imageViewIM.layer.cornerRadius = CGFloat(redius)
-        
     }
 }

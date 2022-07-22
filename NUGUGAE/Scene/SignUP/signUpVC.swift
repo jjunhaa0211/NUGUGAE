@@ -37,15 +37,17 @@ class signUp: UIViewController {
         CGFloat(radius)
     }
     func postsignUp() {
-            let url = "http://192.168.210.253:8080/api/auth/signup"
+            let url = "http://192.168.0.29:8080/api/auth/signup"
             var request = URLRequest(url: URL(string: url)!)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.timeoutInterval = 10
 
             // POST 로 보낼 정보
-        let params = ["name": userName.text!,"email":userEmail.text!,
-                      "emailCheckCode":emailCheckCode.text!,"pw":userPasssword.text!,
+        let params = ["name": userName.text!,
+                      "email":userEmail.text!,
+                      "emailCheckCode":emailCheckCode.text!,
+                      "pw":userPasssword.text!,
                       "userType": "USER"
                      ] as Dictionary
 

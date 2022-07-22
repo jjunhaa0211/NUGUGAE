@@ -20,15 +20,15 @@ class loginVC: UIViewController {
         signInBtn.layer.cornerRadius = CGFloat(19)
     }
     func postLogin() {
-            let url = "http://192.168.210.253:8080/api/auth/login"
+            let url = "http://192.168.0.29:8080/api/auth/login"
             var request = URLRequest(url: URL(string: url)!)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.timeoutInterval = 10
 
             // POST 로 보낼 정보
-        let params = ["email":userName.text!,"pw":password.text!
-                     ] as Dictionary
+        let params = ["email":userName.text!,
+                      "pw":password.text! ] as Dictionary
 
             // httpBody 에 parameters 추가
             do {
@@ -40,7 +40,7 @@ class loginVC: UIViewController {
             AF.request(request).responseString { (response) in
                 switch response.result {
                 case .success:
-                    print("POST 성공")
+                    debugPrint(response)
                     if let userDate = try? JSONDecoder().decode(TokenModel.self, from: response.data!) {
                         KeyChain.create(key: Token.accessToken, token: userDate.access_token)
                         KeyChain.create(key: Token.refreshToken, token: userDate.resfresh_token)
@@ -48,13 +48,21 @@ class loginVC: UIViewController {
                         if let removable = self.view.viewWithTag(102) {
                             removable.removeFromSuperview()
                         }
-                    } else { print("ㅗㅗㅗㅗㅗ") }
+                    } else { print("🌄 화면 전환 성공") }
                     print("🤑POST 성공")
                 case .failure(let error):
-                    print("🚫 Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")
+                    if response.response?.statusCode != 200 {
+                        print("로그인 실패")
+                        let loginFailLabel = UILabel(frame: CGRect(x: 95, y: 479, width: 279, height: 45))
+                        loginFailLabel.text = "아이디나 비밀번호가 다릅니다."
+                        loginFailLabel.textColor = UIColor.red
+                        loginFailLabel.tag = 102
+                        self.view.addSubview(loginFailLabel)
+                        print("🚫 Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")
                 }
             }
         }
+    }
     @IBAction func LoginButton(_ sender: Any) {
         postLogin()
         if(userName.text == "" && password.text == ""){
