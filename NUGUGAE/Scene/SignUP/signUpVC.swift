@@ -61,6 +61,17 @@ class signUp: UIViewController {
             AF.request(request).responseString { (response) in
                 switch response.result {
                 case .success:
+                    debugPrint(response)
+                    if let userDate = try? JSONDecoder().decode(TokenModel.self, from: response.data!) {
+                        KeyChain.create(key: Token.accessToken, token: userDate.access_token)
+                        KeyChain.create(key: Token.refreshToken, token: userDate.resfresh_token)
+                        print("로그인 성공😁")
+                        if let removable = self.view.viewWithTag(102) {
+                            removable.removeFromSuperview()
+                            self.performSegue(withIdentifier: "goToSuccessVC", sender: self)
+                        }
+                    } else { print("이동 성공") }
+                    
                     print("url 경로 : \(request.url as Any)")
                     print("✅POST 성공✅")
                 case .failure(let error):

@@ -47,6 +47,7 @@ class loginVC: UIViewController {
                         print("로그인 성공😁")
                         if let removable = self.view.viewWithTag(102) {
                             removable.removeFromSuperview()
+                            self.performSegue(withIdentifier: "goToSuccessVC", sender: self)
                         }
                     } else { print("🌄 화면 전환 성공") }
                     print("🤑POST 성공")

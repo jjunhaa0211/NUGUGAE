@@ -324,7 +324,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="mIr-9E-74B">
             <objects>
-                <tabBarController id="j60-5O-0vv" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="goToSuccessVC" id="j60-5O-0vv" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="5ZL-e8-p68"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sIq-06-U9c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -388,6 +388,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="signInPressButton:" destination="iaY-Uu-R80" eventType="touchUpInside" id="JnJ-Hb-GJt"/>
+                                    <segue destination="j60-5O-0vv" kind="show" id="siB-g7-96L"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhz-XW-sMf">
@@ -559,6 +560,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8Fg-Te-2wk"/>
+        <segue reference="siB-g7-96L"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.8392156959" green="0.80000001190000003" blue="0.65882354970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
