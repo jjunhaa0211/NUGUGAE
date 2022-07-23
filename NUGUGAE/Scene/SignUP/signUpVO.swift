@@ -42,6 +42,6 @@ class HTTPClient : HTTPClientProvider {
                           interceptor: nil)
     }
     
-    let baseURL = "http://192.168.0.29:8080/api/auth"
+    let baseURL = "https://967d-222-118-155-166.jp.ngrok.io/api/auth"
     
 }

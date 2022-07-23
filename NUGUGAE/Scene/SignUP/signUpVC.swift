@@ -37,7 +37,7 @@ class signUp: UIViewController {
         CGFloat(radius)
     }
     func postsignUp() {
-            let url = "http://192.168.0.29:8080/api/auth/signup"
+            let url = "https://967d-222-118-155-166.jp.ngrok.io/api/auth/signup"
             var request = URLRequest(url: URL(string: url)!)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
