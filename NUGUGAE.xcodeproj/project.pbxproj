@@ -24,7 +24,6 @@
 		0EEA225E28698EF600853FBC /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEA225D28698EF600853FBC /* Header.swift */; };
 		0EEA226328699A8800853FBC /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEA226228699A8800853FBC /* TokenModel.swift */; };
 		0EF124B72875A529006544A8 /* collectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF124B62875A529006544A8 /* collectVC.swift */; };
-		0EFD435C288A72BF005A2E2E /* DelUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFD435B288A72BF005A2E2E /* DelUserVC.swift */; };
 		5DD93EA2319AE384AE7D2D08 /* Pods_NUGUGAE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50DEF58623B456471ABD035A /* Pods_NUGUGAE.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 		0EEA225D28698EF600853FBC /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		0EEA226228699A8800853FBC /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 		0EF124B62875A529006544A8 /* collectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectVC.swift; sourceTree = "<group>"; };
-		0EFD435B288A72BF005A2E2E /* DelUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelUserVC.swift; sourceTree = "<group>"; };
 		50DEF58623B456471ABD035A /* Pods_NUGUGAE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NUGUGAE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8ED2702F3CA0E889548869 /* Pods-NUGUGAE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NUGUGAE.debug.xcconfig"; path = "Target Support Files/Pods-NUGUGAE/Pods-NUGUGAE.debug.xcconfig"; sourceTree = "<group>"; };
 		F477D714BAC77331253EC712 /* Pods-NUGUGAE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NUGUGAE.release.xcconfig"; path = "Target Support Files/Pods-NUGUGAE/Pods-NUGUGAE.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				0EC031C528759A7E00965865 /* buyMainView */,
 				0E9E10FE2865734A0086D92C /* LaunchScreen.storyboard */,
 				0E9E10F92865734A0086D92C /* Main.storyboard */,
-				0EFD435B288A72BF005A2E2E /* DelUserVC.swift */,
 				0EF124B62875A529006544A8 /* collectVC.swift */,
 				0E9E11012865734A0086D92C /* Info.plist */,
 			);
@@ -292,7 +289,6 @@
 				0EEA225C28698D7400853FBC /* APIProvider.swift in Sources */,
 				0E5F6030286B015200051B37 /* buyView.swift in Sources */,
 				0E9E10F42865734A0086D92C /* AppDelegate.swift in Sources */,
-				0EFD435C288A72BF005A2E2E /* DelUserVC.swift in Sources */,
 				0EEA22582869810000853FBC /* signUpVO.swift in Sources */,
 				0EF124B72875A529006544A8 /* collectVC.swift in Sources */,
 				0EEA225A28698D1F00853FBC /* API.swift in Sources */,
