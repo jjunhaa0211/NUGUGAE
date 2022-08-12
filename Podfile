@@ -9,7 +9,7 @@ target 'NUGUGAE' do
 	pod 'Alamofire'
 	pod 'FSCalendar'
 	pod 'SPIndicator'
-
+	pod 'SnapKit', '~> 5.6.0'
   # Pods for NUGUGAE
 
 end

@@ -17,6 +17,7 @@
 		0E9E10FB2865734A0086D92C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E9E10F92865734A0086D92C /* Main.storyboard */; };
 		0E9E10FD2865734A0086D92C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E9E10FC2865734A0086D92C /* Assets.xcassets */; };
 		0E9E11002865734A0086D92C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E9E10FE2865734A0086D92C /* LaunchScreen.storyboard */; };
+		0EAEF4F2288E3E20008F2910 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEF4EE288E3E20008F2910 /* DiaryCell.swift */; };
 		0EC031C4287597F200965865 /* mainHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC031C3287597F200965865 /* mainHomeVC.swift */; };
 		0EEA22582869810000853FBC /* signUpVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEA22572869810000853FBC /* signUpVO.swift */; };
 		0EEA225A28698D1F00853FBC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEA225928698D1F00853FBC /* API.swift */; };
@@ -40,6 +41,7 @@
 		0E9E10FC2865734A0086D92C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E9E10FF2865734A0086D92C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E9E11012865734A0086D92C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EAEF4EE288E3E20008F2910 /* DiaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaryCell.swift; path = "../../../iOS/Study/practice diary/practice diary/DiaryCell.swift"; sourceTree = "<group>"; };
 		0EC031C3287597F200965865 /* mainHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainHomeVC.swift; sourceTree = "<group>"; };
 		0EEA22572869810000853FBC /* signUpVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpVO.swift; sourceTree = "<group>"; };
 		0EEA225928698D1F00853FBC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				0EC031C528759A7E00965865 /* buyMainView */,
 				0E9E10FE2865734A0086D92C /* LaunchScreen.storyboard */,
 				0E9E10F92865734A0086D92C /* Main.storyboard */,
+				0EAEF4EE288E3E20008F2910 /* DiaryCell.swift */,
 				0EF124B62875A529006544A8 /* collectVC.swift */,
 				0E9E11012865734A0086D92C /* Info.plist */,
 			);
@@ -289,6 +292,7 @@
 				0EEA225C28698D7400853FBC /* APIProvider.swift in Sources */,
 				0E5F6030286B015200051B37 /* buyView.swift in Sources */,
 				0E9E10F42865734A0086D92C /* AppDelegate.swift in Sources */,
+				0EAEF4F2288E3E20008F2910 /* DiaryCell.swift in Sources */,
 				0EEA22582869810000853FBC /* signUpVO.swift in Sources */,
 				0EF124B72875A529006544A8 /* collectVC.swift in Sources */,
 				0EEA225A28698D1F00853FBC /* API.swift in Sources */,
