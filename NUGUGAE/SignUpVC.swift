@@ -19,10 +19,11 @@ class SignUpViewController : UIViewController {
 
     var httpClient = HTTPClient()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        signUpText()
+        logoView()
         nameViewLine()
         idViewLine()
         passworldViewLine()
@@ -32,24 +33,53 @@ class SignUpViewController : UIViewController {
         certificationViewButton()
         emailCheckCodeViewLine()
         emailFieldView()
+        gotoFirstView()
     }
     
-    func signUpText() {
-        let loginLabel = UILabel()
-        loginLabel.textColor = .black
-        loginLabel.text = "SignUp"
-        view.addSubview(loginLabel)
-        
-        loginLabel.font = UIFont.boldSystemFont(ofSize: 35)
-        
-        loginLabel.snp.makeConstraints {
-            $0.height.equalTo(50)
+    func gotoFirstView() {
+        let firstButton = UIButton()
+        view.addSubview(firstButton)
+        let ColorB = UIColor(named: "Color-b")
+        firstButton.setTitle("If you have an account, go to login", for: .normal)
+        firstButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        firstButton.setTitleColor(ColorB, for: .normal)
+        firstButton.snp.makeConstraints {
+            $0.height.equalTo(30)
             $0.width.equalTo(200)
-            $0.trailing.equalTo(-100)
-            $0.bottom.equalTo(-700)
-            $0.leading.equalTo(160)
+            $0.trailing.equalTo(-85)
+            $0.bottom.equalTo(-130)
+            $0.leading.equalTo(85)
             
         }
+        firstButton.addTarget(self, action: #selector(goToFirstButtonAction), for: .touchUpInside)
+    }
+    @objc func goToFirstButtonAction(sender: UIButton!){
+        
+        let goToMainTabBarVC = FirstViewController()
+        goToMainTabBarVC.modalPresentationStyle = .fullScreen
+        self.present(goToMainTabBarVC, animated: true, completion: nil)
+    }
+    
+    func logoView() {
+        
+        let imageView: UIImageView = {
+            let logoImage = UIImageView()
+            logoImage.backgroundColor = .white
+            logoImage.image = UIImage(named: "NUGUGAELogo")
+            logoImage.contentMode = .scaleAspectFit
+            
+            logoImage.translatesAutoresizingMaskIntoConstraints = false
+            return logoImage
+        }()
+        
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints{
+            $0.width.height.equalTo(150)
+            $0.trailing.equalTo(-45)
+            $0.top.equalTo(100)
+            $0.leading.equalTo(45)
+        }
+        
     }
 
     func nameViewLine() {
@@ -231,7 +261,7 @@ class SignUpViewController : UIViewController {
             $0.height.equalTo(55)
             $0.width.equalTo(325)
             $0.trailing.equalTo(-45)
-            $0.bottom.equalTo(-160)
+            $0.bottom.equalTo(-190)
             $0.leading.equalTo(45)
         }
         
@@ -241,13 +271,6 @@ class SignUpViewController : UIViewController {
     
     @objc func SignUpbuttonAction(sender: UIButton!){
         postsignUp()
-//        print("------------------------------")
-//        print("Name : \(nameField.text!)")
-//        print("Id : \(idFidld.text!)")
-//        print("Password : \(passworldField.text!)")
-//        print("Age : \(emailField.text!)")
-//        print("------------------------------")
-
     }
     func postsignUp() {
             let url = "https://b6ce-222-118-155-166.jp.ngrok.io/api/auth/signup"
@@ -282,9 +305,7 @@ class SignUpViewController : UIViewController {
                         print("로그인 성공😁")
                     print("url 경로 : \(request.url as Any)")
                     print("✅POST 성공✅")
-                        let goToMainTabBarVC = FirstViewController()
-                        goToMainTabBarVC.modalPresentationStyle = .fullScreen
-                        self.present(goToMainTabBarVC, animated: true, completion: nil)
+                    self.gotoFirstView()
                     print("이동 성공 🙃")
                 case .failure(let error):
                     print("🚫 Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")

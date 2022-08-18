@@ -59,6 +59,8 @@
 		0E41E5DF28ADB34B00F9A38F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0E41E5E028ADD35A00F9A38F /* API.swift */,
+				0E41E5E228ADD38200F9A38F /* APIProvider.swift */,
 				0E41E5DB28ADB26F00F9A38F /* Header.swift */,
 				0E41E5DD28ADB29C00F9A38F /* TokenModel.swift */,
 			);
@@ -93,8 +95,6 @@
 				0E41E5D728ADB19700F9A38F /* SignUpVC.swift */,
 				0E41E5E428ADE87300F9A38F /* BaseNC.swift */,
 				0E41E5D928ADB1F700F9A38F /* SignUpVO.swift */,
-				0E41E5E028ADD35A00F9A38F /* API.swift */,
-				0E41E5E228ADD38200F9A38F /* APIProvider.swift */,
 				0E41E5DF28ADB34B00F9A38F /* Model */,
 				0E9E10FC2865734A0086D92C /* Assets.xcassets */,
 				0E9E10FE2865734A0086D92C /* LaunchScreen.storyboard */,

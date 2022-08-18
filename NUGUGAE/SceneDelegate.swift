@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
-        
+        window?.rootViewController = UINavigationController(rootViewController: SignUpViewController())
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
 
