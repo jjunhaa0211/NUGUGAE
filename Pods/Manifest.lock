@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (5.6.1)
   - FSCalendar (2.8.4)
+  - Kingfisher (5.15.8):
+    - Kingfisher/Core (= 5.15.8)
+  - Kingfisher/Core (5.15.8)
   - SnapKit (5.6.0)
   - SPIndicator (1.6.4)
   - Toast-Swift (5.0.1)
@@ -8,6 +11,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - FSCalendar
+  - Kingfisher (~> 5.0)
   - SnapKit (~> 5.6.0)
   - SPIndicator
   - Toast-Swift (~> 5.0.1)
@@ -16,6 +20,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - FSCalendar
+    - Kingfisher
     - SnapKit
     - SPIndicator
     - Toast-Swift
@@ -23,10 +28,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SPIndicator: 93e0a4fb23de51294ac48e874c0f081a5e293e4f
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 7cc5fc2fbc4e2690c4f13b971dcfdd60db5a0212
+PODFILE CHECKSUM: f4d4a744a2b13990a71435e6c4fed7da7faacfc5
 
 COCOAPODS: 1.11.3

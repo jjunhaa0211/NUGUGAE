@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0E1AACAF28AE2B33000C5475 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AACAE28AE2B33000C5475 /* HomeVC.swift */; };
 		0E1AACB128AE2B97000C5475 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AACB028AE2B97000C5475 /* SearchVC.swift */; };
+		0E1AACB728AE62F5000C5475 /* PetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AACB628AE62F4000C5475 /* PetList.swift */; };
+		0E1AACBB28AE6EF3000C5475 /* imageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AACBA28AE6EF3000C5475 /* imageCell.swift */; };
+		0E1AACBD28AE6F15000C5475 /* SavePet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AACBC28AE6F15000C5475 /* SavePet.swift */; };
+		0E1AACBF28AE715C000C5475 /* SearchPetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AACBE28AE715C000C5475 /* SearchPetList.swift */; };
+		0E1AACC328AE7514000C5475 /* HomeCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AACC228AE7514000C5475 /* HomeCollectionViewHeader.swift */; };
 		0E3DD44328ADFA1C00DBF1C5 /* MainTapBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3DD44228ADFA1C00DBF1C5 /* MainTapBarVC.swift */; };
 		0E41E5D428ADB0E100F9A38F /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D328ADB0E100F9A38F /* FirstVC.swift */; };
 		0E41E5D628ADB12B00F9A38F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D528ADB12B00F9A38F /* LoginVC.swift */; };
@@ -28,6 +33,11 @@
 /* Begin PBXFileReference section */
 		0E1AACAE28AE2B33000C5475 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0E1AACB028AE2B97000C5475 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		0E1AACB628AE62F4000C5475 /* PetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PetList.swift; path = "/Users/junha/Desktop/NUGUGAE!/NUGUGAE/NUGUGAE/PetList.swift"; sourceTree = "<absolute>"; };
+		0E1AACBA28AE6EF3000C5475 /* imageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCell.swift; sourceTree = "<group>"; };
+		0E1AACBC28AE6F15000C5475 /* SavePet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePet.swift; sourceTree = "<group>"; };
+		0E1AACBE28AE715C000C5475 /* SearchPetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchPetList.swift; path = "/Users/junha/Desktop/NUGUGAE!/NUGUGAE/NUGUGAE/SearchPetList.swift"; sourceTree = "<absolute>"; };
+		0E1AACC228AE7514000C5475 /* HomeCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewHeader.swift; sourceTree = "<group>"; };
 		0E3DD44228ADFA1C00DBF1C5 /* MainTapBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapBarVC.swift; sourceTree = "<group>"; };
 		0E41E5D328ADB0E100F9A38F /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		0E41E5D528ADB12B00F9A38F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -87,6 +97,16 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		0E1AACB528AE60D4000C5475 /* TapbarView */ = {
+			isa = PBXGroup;
+			children = (
+				0E1AACAE28AE2B33000C5475 /* HomeVC.swift */,
+				0E1AACBA28AE6EF3000C5475 /* imageCell.swift */,
+				0E1AACB028AE2B97000C5475 /* SearchVC.swift */,
+			);
+			path = TapbarView;
+			sourceTree = "<group>";
+		};
 		0E41E5DF28ADB34B00F9A38F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,11 +143,14 @@
 				0E9E10F52865734A0086D92C /* SceneDelegate.swift */,
 				0E1AACB328AE2FCE000C5475 /* FirstView */,
 				0E3DD44228ADFA1C00DBF1C5 /* MainTapBarVC.swift */,
-				0E1AACB028AE2B97000C5475 /* SearchVC.swift */,
-				0E1AACAE28AE2B33000C5475 /* HomeVC.swift */,
+				0E1AACB528AE60D4000C5475 /* TapbarView */,
 				0E41E5DF28ADB34B00F9A38F /* Model */,
 				0E9E10FC2865734A0086D92C /* Assets.xcassets */,
 				0E9E10FE2865734A0086D92C /* LaunchScreen.storyboard */,
+				0E1AACC228AE7514000C5475 /* HomeCollectionViewHeader.swift */,
+				0E1AACB628AE62F4000C5475 /* PetList.swift */,
+				0E1AACBE28AE715C000C5475 /* SearchPetList.swift */,
+				0E1AACBC28AE6F15000C5475 /* SavePet.swift */,
 				0E9E11012865734A0086D92C /* Info.plist */,
 			);
 			path = NUGUGAE;
@@ -264,9 +287,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E1AACC328AE7514000C5475 /* HomeCollectionViewHeader.swift in Sources */,
+				0E1AACBD28AE6F15000C5475 /* SavePet.swift in Sources */,
 				0E41E5E128ADD35A00F9A38F /* API.swift in Sources */,
 				0E41E5D428ADB0E100F9A38F /* FirstVC.swift in Sources */,
+				0E1AACBB28AE6EF3000C5475 /* imageCell.swift in Sources */,
 				0E9E10F42865734A0086D92C /* AppDelegate.swift in Sources */,
+				0E1AACB728AE62F5000C5475 /* PetList.swift in Sources */,
+				0E1AACBF28AE715C000C5475 /* SearchPetList.swift in Sources */,
 				0E41E5D628ADB12B00F9A38F /* LoginVC.swift in Sources */,
 				0E1AACAF28AE2B33000C5475 /* HomeVC.swift in Sources */,
 				0E41E5DC28ADB26F00F9A38F /* Header.swift in Sources */,

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/junha/Desktop/NUGUGAE!/NUGUGAE/NUGUGAE/SearchPetList.swift">
+   </FileRef>
+   <FileRef
       location = "group:NUGUGAE.xcodeproj">
    </FileRef>
    <FileRef

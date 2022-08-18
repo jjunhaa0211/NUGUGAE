@@ -10,6 +10,7 @@ target 'NUGUGAE' do
 	pod 'FSCalendar'
 	pod 'SPIndicator'
 	pod 'SnapKit', '~> 5.6.0'
+	pod 'Kingfisher', '~> 5.0'
   # Pods for NUGUGAE
 
 end
