@@ -36,14 +36,15 @@ class FirstViewController : UIViewController {
     
     func configureLoginButton() {
         let loginButton = UIButton()
+        let ColorC = UIColor(named: "Color-c")
+        loginButton.backgroundColor = ColorC
         loginButton.setTitle("Login", for: .normal)
-        loginButton.backgroundColor = .black
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         
         view.addSubview(loginButton)
         
-        loginButton.layer.cornerRadius = 15
+        loginButton.layer.cornerRadius = 10
         
         loginButton.snp.makeConstraints{
             $0.height.equalTo(55)
@@ -69,14 +70,16 @@ class FirstViewController : UIViewController {
     func configureSignUpButton() {
         
         let signUpButton = UIButton()
+        let ColorA = UIColor(named: "Color-a")
+        signUpButton.backgroundColor = ColorA
         signUpButton.setTitle("Sign Up", for: .normal)
-        signUpButton.backgroundColor = .black
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
+//        signUpButton.contentHorizontalAlignment = .left
         view.addSubview(signUpButton)
         
         signUpButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         
-        signUpButton.layer.cornerRadius = 15
+        signUpButton.layer.cornerRadius = 10
 
         
         signUpButton.snp.makeConstraints{
