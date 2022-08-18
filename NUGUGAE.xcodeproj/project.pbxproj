@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3DD44328ADFA1C00DBF1C5 /* MainTapBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3DD44228ADFA1C00DBF1C5 /* MainTapBarVC.swift */; };
 		0E41E5D428ADB0E100F9A38F /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D328ADB0E100F9A38F /* FirstVC.swift */; };
 		0E41E5D628ADB12B00F9A38F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D528ADB12B00F9A38F /* LoginVC.swift */; };
 		0E41E5D828ADB19700F9A38F /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D728ADB19700F9A38F /* SignUpVC.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E3DD44228ADFA1C00DBF1C5 /* MainTapBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapBarVC.swift; sourceTree = "<group>"; };
 		0E41E5D328ADB0E100F9A38F /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		0E41E5D528ADB12B00F9A38F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0E41E5D728ADB19700F9A38F /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				0E9E10F52865734A0086D92C /* SceneDelegate.swift */,
 				0E41E5D328ADB0E100F9A38F /* FirstVC.swift */,
 				0E41E5D528ADB12B00F9A38F /* LoginVC.swift */,
+				0E3DD44228ADFA1C00DBF1C5 /* MainTapBarVC.swift */,
 				0E41E5D728ADB19700F9A38F /* SignUpVC.swift */,
 				0E41E5E428ADE87300F9A38F /* BaseNC.swift */,
 				0E41E5D928ADB1F700F9A38F /* SignUpVO.swift */,
@@ -243,6 +246,7 @@
 				0E41E5DE28ADB29C00F9A38F /* TokenModel.swift in Sources */,
 				0E41E5E328ADD38200F9A38F /* APIProvider.swift in Sources */,
 				0E41E5E528ADE87300F9A38F /* BaseNC.swift in Sources */,
+				0E3DD44328ADFA1C00DBF1C5 /* MainTapBarVC.swift in Sources */,
 				0E41E5D828ADB19700F9A38F /* SignUpVC.swift in Sources */,
 				0E9E10F62865734A0086D92C /* SceneDelegate.swift in Sources */,
 			);
