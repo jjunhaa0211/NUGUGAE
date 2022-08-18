@@ -17,10 +17,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
 
-        let FirstView = FirstViewController()
+        //collectionview layout 실행할려하려면 필요함
+        let layout = UICollectionViewLayout()
+        let homeViewController = HomeViewController(collectionViewLayout: layout)
+        let rootNavigationController = UINavigationController(rootViewController: homeViewController)
+        
+        self.window?.rootViewController = rootNavigationController
+        self.window?.makeKeyAndVisible()
+//        let FirstView = FirstViewController() // 로그인 첫 화면
+        let mainTC = MainTapBarViewController()
 
 
-        window?.rootViewController = FirstView
+        window?.rootViewController = mainTC
 
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene

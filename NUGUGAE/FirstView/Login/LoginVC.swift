@@ -65,6 +65,7 @@ class LoginViewController : UIViewController {
                         print("로그인 실패 🤬")
                         print(response)
                         print(request)
+                        debugPrint(response)
                 }
             }
         }
