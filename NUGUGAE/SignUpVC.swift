@@ -13,6 +13,8 @@ class SignUpViewController : UIViewController {
     let idFidld = UITextField()
     let passworldField = UITextField()
     let ageField = UITextField()
+    let certificationButton = UIButton()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,7 @@ class SignUpViewController : UIViewController {
         ageViewLine()
         NameAndIdAndPassAndAgeTextField()
         configureSignUpButton()
-        certificationViewLine()
+        certificationViewButton()
     }
     
     func signUpText() {
@@ -105,19 +107,24 @@ class SignUpViewController : UIViewController {
         }
     }
 //    375 차이
-    func certificationViewLine() {
-        let certification = UIView()
+    func certificationViewButton() {
         let ColorB = UIColor(named: "Color-b")
-        view.addSubview(certification)
-        certification.backgroundColor = ColorB
-        certification.layer.cornerRadius = 20
-        certification.snp.makeConstraints{
+        view.addSubview(certificationButton)
+        certificationButton.backgroundColor = ColorB
+        certificationButton.layer.cornerRadius = 20
+        certificationButton.setTitle("인증", for: .normal)
+        certificationButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        certificationButton.snp.makeConstraints{
             $0.height.equalTo(40)
             $0.width.equalTo(50)
             $0.trailing.equalTo(-45)
             $0.top.equalTo(505)
             $0.leading.equalTo(338)
         }
+        certificationButton.addTarget(self, action: #selector(certificationAction), for: .touchUpInside)
+    }
+    @objc func certificationAction(sender: UIButton!){
+        print("인증 버튼")
     }
     
     func NameAndIdAndPassAndAgeTextField() {
