@@ -10,9 +10,12 @@
 		0E41E5D428ADB0E100F9A38F /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D328ADB0E100F9A38F /* FirstVC.swift */; };
 		0E41E5D628ADB12B00F9A38F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D528ADB12B00F9A38F /* LoginVC.swift */; };
 		0E41E5D828ADB19700F9A38F /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D728ADB19700F9A38F /* SignUpVC.swift */; };
-		0E41E5DA28ADB1F700F9A38F /* ClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D928ADB1F700F9A38F /* ClientProvider.swift */; };
+		0E41E5DA28ADB1F700F9A38F /* SignUpVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D928ADB1F700F9A38F /* SignUpVO.swift */; };
 		0E41E5DC28ADB26F00F9A38F /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5DB28ADB26F00F9A38F /* Header.swift */; };
 		0E41E5DE28ADB29C00F9A38F /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5DD28ADB29C00F9A38F /* TokenModel.swift */; };
+		0E41E5E128ADD35A00F9A38F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5E028ADD35A00F9A38F /* API.swift */; };
+		0E41E5E328ADD38200F9A38F /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5E228ADD38200F9A38F /* APIProvider.swift */; };
+		0E41E5E528ADE87300F9A38F /* BaseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5E428ADE87300F9A38F /* BaseNC.swift */; };
 		0E9E10F42865734A0086D92C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E10F32865734A0086D92C /* AppDelegate.swift */; };
 		0E9E10F62865734A0086D92C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E10F52865734A0086D92C /* SceneDelegate.swift */; };
 		0E9E10FD2865734A0086D92C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E9E10FC2865734A0086D92C /* Assets.xcassets */; };
@@ -24,9 +27,12 @@
 		0E41E5D328ADB0E100F9A38F /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		0E41E5D528ADB12B00F9A38F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0E41E5D728ADB19700F9A38F /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
-		0E41E5D928ADB1F700F9A38F /* ClientProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProvider.swift; sourceTree = "<group>"; };
+		0E41E5D928ADB1F700F9A38F /* SignUpVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVO.swift; sourceTree = "<group>"; };
 		0E41E5DB28ADB26F00F9A38F /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		0E41E5DD28ADB29C00F9A38F /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
+		0E41E5E028ADD35A00F9A38F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		0E41E5E228ADD38200F9A38F /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		0E41E5E428ADE87300F9A38F /* BaseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNC.swift; sourceTree = "<group>"; };
 		0E9E10F02865734A0086D92C /* NUGUGAE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NUGUGAE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E9E10F32865734A0086D92C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E9E10F52865734A0086D92C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +61,6 @@
 			children = (
 				0E41E5DB28ADB26F00F9A38F /* Header.swift */,
 				0E41E5DD28ADB29C00F9A38F /* TokenModel.swift */,
-				0E41E5D928ADB1F700F9A38F /* ClientProvider.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -86,6 +91,10 @@
 				0E41E5D328ADB0E100F9A38F /* FirstVC.swift */,
 				0E41E5D528ADB12B00F9A38F /* LoginVC.swift */,
 				0E41E5D728ADB19700F9A38F /* SignUpVC.swift */,
+				0E41E5E428ADE87300F9A38F /* BaseNC.swift */,
+				0E41E5D928ADB1F700F9A38F /* SignUpVO.swift */,
+				0E41E5E028ADD35A00F9A38F /* API.swift */,
+				0E41E5E228ADD38200F9A38F /* APIProvider.swift */,
 				0E41E5DF28ADB34B00F9A38F /* Model */,
 				0E9E10FC2865734A0086D92C /* Assets.xcassets */,
 				0E9E10FE2865734A0086D92C /* LaunchScreen.storyboard */,
@@ -225,12 +234,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E41E5E128ADD35A00F9A38F /* API.swift in Sources */,
 				0E41E5D428ADB0E100F9A38F /* FirstVC.swift in Sources */,
 				0E9E10F42865734A0086D92C /* AppDelegate.swift in Sources */,
 				0E41E5D628ADB12B00F9A38F /* LoginVC.swift in Sources */,
 				0E41E5DC28ADB26F00F9A38F /* Header.swift in Sources */,
-				0E41E5DA28ADB1F700F9A38F /* ClientProvider.swift in Sources */,
+				0E41E5DA28ADB1F700F9A38F /* SignUpVO.swift in Sources */,
 				0E41E5DE28ADB29C00F9A38F /* TokenModel.swift in Sources */,
+				0E41E5E328ADD38200F9A38F /* APIProvider.swift in Sources */,
+				0E41E5E528ADE87300F9A38F /* BaseNC.swift in Sources */,
 				0E41E5D828ADB19700F9A38F /* SignUpVC.swift in Sources */,
 				0E9E10F62865734A0086D92C /* SceneDelegate.swift in Sources */,
 			);
