@@ -16,6 +16,8 @@ class SignUpViewController : UIViewController {
     let emailField = UITextField()
     let emailCheckField = UITextField()
     let certificationButton = UIButton()
+    
+    var imageView = UIImage()
 
     var httpClient = HTTPClient()
     
@@ -34,6 +36,7 @@ class SignUpViewController : UIViewController {
         emailCheckCodeViewLine()
         emailFieldView()
         gotoFirstView()
+
     }
     
     func gotoFirstView() {
@@ -298,11 +301,6 @@ class SignUpViewController : UIViewController {
                 switch response.result {
                 case .success:
                     debugPrint(response)
-//                    if let userDate = try? JSONDecoder().decode(TokenModel.self, from: response.data!) {
-//                        KeyChain.create(key: Token.accessToken, token: userDate.access_token)
-//                        KeyChain.create(key: Token.refreshToken, token: userDate.resfresh_token)
-//                        print("로그인 성공😁")
-//                    }
                     print("url 경로 : \(request.url as Any)")
                     print("✅POST 성공✅")
                     self.gotoFirstView()
@@ -314,13 +312,10 @@ class SignUpViewController : UIViewController {
     }
     func SendVerificationCodeButton() {
         let url = "https://b6ce-222-118-155-166.jp.ngrok.io/api/auth\(AuthAPI.emailcheck.path() + "?email="+emailField.text!)"
-//        let url = "https://b6ce-222-118-155-166.jp.ngrok.io/api/auth/email?email=jnxhx06@gmail.com"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 10
-//            params: nil,
-//            header:Header.tokenIsEmpty.header()
         AF.request(url,method: .post,encoding: JSONEncoding.default).responseString { (response) in
             switch response.response?.statusCode {
             case 200:

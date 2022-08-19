@@ -12,4 +12,10 @@ import Alamofire
 
 class UserViewController : UIViewController {
 
+    let ColorC = UIColor(named: "Color-c")
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = ColorC
+    }
 }

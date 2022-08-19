@@ -35,16 +35,6 @@ final class MyCell: UICollectionViewCell {
       self.imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
     ])
   }
-  
-  override func prepareForReuse() {
-    super.prepareForReuse()
-    
-    self.prepare(image: nil)
-  }
-  
-  func prepare(image: UIImage?) {
-    self.imageView.image = image
-  }
     func configure(with pet: SearchPetList) {
         let imageURL = URL(string: pet.filePath ?? "")
         imageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "DognotFound"))

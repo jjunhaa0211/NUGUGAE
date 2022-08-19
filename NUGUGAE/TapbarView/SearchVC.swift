@@ -6,8 +6,15 @@
 //
 
 import UIKit
+import Alamofire
 
 class SearchViewController: UIViewController {
+    
+    var petList: [SearchPetList] = []
+    
+    var dataTasks = [URLSessionTask]()
+    
+    var currentPage = 1
     
     let dogButton = UIButton()
     let catButton  = UIButton()
@@ -20,7 +27,6 @@ class SearchViewController: UIViewController {
     let animal : String = "AnimalNotFound"
     
     private var dataSource = getSampleImages()
-
     
   private let gridFlowLayout: GridCollectionViewFlowLayout = {
     let layout = GridCollectionViewFlowLayout()
@@ -59,10 +65,70 @@ class SearchViewController: UIViewController {
     self.collectionView.dataSource = self
     self.collectionView.delegate = self
       
+//      fetchPet(of: )
+      
       DogButton()
       CatButton()
       animalsButton()
+
   }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getPetList()
+    }
+    private func getPetList() {
+        
+        let url = "https://b6ce-222-118-155-166.jp.ngrok.io/api/pet/search?s=1&p=1"
+        let AT : String? = KeyChain.read(key: Token.accessToken)
+        let header : HTTPHeaders = [
+            "Authorization" : "Bearer \(AT!)"
+        ]
+        
+        print("")
+        print("====================================")
+        print("주 소 :: ", url)
+        print("====================================")
+        print("")
+        
+        AF.request(url, method: .get, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300)
+            .responseData { response in
+                switch response.result {
+                case .success(let res):
+                    
+                    do {
+                        let data = try JSONDecoder().decode([SearchPetList].self, from: response.data!)
+                        print(data)
+                        self.petList = data
+                        self.collectionView.reloadData()
+                    } catch {
+                        print(error)
+                    }
+                    
+                    print("")
+                    print("-------------------------------")
+                    print("응답 코드 :: ", response.response?.statusCode ?? 0)
+                    print("-------------------------------")
+                    print("응답 데이터 :: ", String(data: res, encoding: .utf8) ?? "")
+                    print("====================================")
+                    debugPrint(response)
+                    print("-------------------------------")
+                    print("")
+                    
+                case .failure(let err):
+                    print("")
+                    print("-------------------------------")
+                    print("응답 코드 :: ", response.response?.statusCode ?? 0)
+                    print("-------------------------------")
+                    print("에 러 :: ", err.localizedDescription)
+                    print("====================================")
+                    debugPrint(response)
+                    print("")
+                    break
+                }
+            }
+    }
+
     
     func CatButton() {
         catButton.setTitle("Cat", for: .normal)
@@ -145,22 +211,30 @@ class SearchViewController: UIViewController {
     @objc func animalbuttonAction(sender: UIButton!){
         print("동물 버튼 실행됨")
     }
+
 }
 
 extension SearchViewController: UICollectionViewDataSource,UICollectionViewDelegate {
+    
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    self.dataSource.count
+    self.petList.count
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCell.id, for: indexPath) as! MyCell
-    cell.prepare(image: self.dataSource[indexPath.item])
+      
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCell.id, for: indexPath) as! MyCell
+      
+      let petListView = petList[indexPath.row]
+      cell.configure(with: petListView)
+      
     return cell
   }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let dateIndexPath = dataSource[indexPath.row]
-        print(dateIndexPath!)
+        let petListIndexPath = petList[indexPath.row]
+        print(petListIndexPath)
     }
 }
+
+
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -179,6 +253,60 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
 func getSampleImages() -> [UIImage?] {
   (1...100).map { _ in return UIImage(named: "AnimalNotFound") }
+}
+
+private extension SearchViewController {
+    func fetchPet(of imageIndexPath: PetList.Type) {
+        guard let url = URL(string: "https://www.daejeon.go.kr/\(imageIndexPath)"),
+            dataTasks.firstIndex(where: { $0.originalRequest?.url == url }) == nil else { return } //이미 Beer를 패칭했음. 그렇지 않다면,
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {[weak self] data, response, error in
+            guard error == nil,
+                  let self = self,
+                  let response = response as? HTTPURLResponse,
+                  let data = data,
+                  let pets = try? JSONDecoder().decode([SearchPetList].self, from: data) else {
+                    print("ERROR: URLSession data task error \(error?.localizedDescription ?? "")")
+                    return
+            }
+            
+            switch response.statusCode {
+            case (200...299):
+                self.petList += pets
+                self.currentPage += 1
+
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            case (400...499):
+                print(
+                    """
+                    ERROR: Client ERROR \(response.statusCode)
+                    Response: \(response)
+                    """
+                )
+            case (500...599):
+                print(
+                    """
+                    ERROR: Server ERROR \(response.statusCode)
+                    Response: \(response)
+                    """
+                )
+            default:
+                print(
+                    """
+                    ERROR: \(response.statusCode)
+                    Response: \(response)
+                    """
+                )
+            }
+        }
+        dataTask.resume()
+        dataTasks.append(dataTask)
+    }
 }
 
 import SwiftUI
