@@ -18,11 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         
         
-//        let FirstView = FirstViewController() // 로그인 첫 화면
-        let mainTC = MainTapBarViewController()
+        let FirstView = FirstViewController() // 로그인 첫 화면
+//        let mainTC = MainTapBarViewController()
 
 
-        window?.rootViewController = mainTC
+        window?.rootViewController = FirstView
 
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene

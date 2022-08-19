@@ -11,7 +11,16 @@ class SearchViewController: UIViewController {
     
     let dogButton = UIButton()
     let catButton  = UIButton()
-    let anyButton = UIButton()
+    let animalButton = UIButton()
+    
+    let ColorC = UIColor(named: "Color-c")
+    let ColorA = UIColor(named: "Color-a")
+    let dog : String = "DognotFound"
+    let cat : String = "CatNotFound"
+    let animal : String = "AnimalNotFound"
+    
+    private var dataSource = getSampleImages()
+
     
   private let gridFlowLayout: GridCollectionViewFlowLayout = {
     let layout = GridCollectionViewFlowLayout()
@@ -19,8 +28,6 @@ class SearchViewController: UIViewController {
     layout.numberOfColumns = 2
     return layout
   }()
-  
-  private var dataSource = getSampleImages()
   
   private lazy var collectionView: UICollectionView = {
     let view = UICollectionView(frame: .zero, collectionViewLayout: self.gridFlowLayout)
@@ -37,6 +44,8 @@ class SearchViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+      
+      view.backgroundColor = ColorC
     
     self.view.addSubview(self.collectionView)
 
@@ -51,11 +60,11 @@ class SearchViewController: UIViewController {
     self.collectionView.delegate = self
       
       DogButton()
+      CatButton()
+      animalsButton()
   }
     
     func CatButton() {
-        let ColorA = UIColor(named: "Color-a")
-        let ColorC = UIColor(named: "Color-c")
         catButton.setTitle("Cat", for: .normal)
         catButton.setTitleColor(ColorC, for: .normal)
         catButton.backgroundColor = ColorA
@@ -68,21 +77,22 @@ class SearchViewController: UIViewController {
         catButton.snp.makeConstraints{
             $0.height.equalTo(55)
             $0.width.equalTo(105)
-            $0.trailing.equalTo(400)
+            $0.trailing.equalTo(0)
             $0.top.equalTo(60)
-            $0.leading.equalTo(0)
+            $0.leading.equalTo(280)
         }
         
         catButton.addTarget(self, action: #selector(CatbuttonAction), for: .touchUpInside)
         
-        }
+    }
     
     @objc func CatbuttonAction(sender: UIButton!){
         print("고양이 버튼 실행됨")
+        func getSampleImages() -> [UIImage?] {
+          (1...100).map { _ in return UIImage(named: cat) }
+        }
     }
     func DogButton() {
-        let ColorA = UIColor(named: "Color-a")
-        let ColorC = UIColor(named: "Color-c")
         dogButton.setTitle("Dog", for: .normal)
         dogButton.setTitleColor(ColorC, for: .normal)
         dogButton.backgroundColor = ColorA
@@ -106,10 +116,38 @@ class SearchViewController: UIViewController {
     
     @objc func DogbuttonAction(sender: UIButton!){
         print("강아지 버튼 실행됨")
+        func getSampleImages() -> [UIImage?] {
+          (1...100).map { _ in return UIImage(named: dog) }
+        }
+    }
+    func animalsButton() {
+        animalButton.setTitle("animal", for: .normal)
+        animalButton.setTitleColor(ColorC, for: .normal)
+        animalButton.backgroundColor = ColorA
+        animalButton.layer.cornerRadius = 10
+        
+        view.addSubview(animalButton)
+        
+        animalButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        
+        animalButton.snp.makeConstraints{
+            $0.height.equalTo(55)
+            $0.width.equalTo(105)
+            $0.trailing.equalTo(-150)
+            $0.top.equalTo(60)
+            $0.leading.equalTo(150)
+        }
+        
+        animalButton.addTarget(self, action: #selector(animalbuttonAction), for: .touchUpInside)
+        
+        }
+    
+    @objc func animalbuttonAction(sender: UIButton!){
+        print("동물 버튼 실행됨")
     }
 }
 
-extension SearchViewController: UICollectionViewDataSource {
+extension SearchViewController: UICollectionViewDataSource,UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     self.dataSource.count
   }
@@ -118,6 +156,10 @@ extension SearchViewController: UICollectionViewDataSource {
     cell.prepare(image: self.dataSource[indexPath.item])
     return cell
   }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let dateIndexPath = dataSource[indexPath.row]
+        print(dateIndexPath!)
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
@@ -136,7 +178,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 }
 
 func getSampleImages() -> [UIImage?] {
-  (1...100).map { _ in return UIImage(named: "notFound") }
+  (1...100).map { _ in return UIImage(named: "AnimalNotFound") }
 }
 
 import SwiftUI

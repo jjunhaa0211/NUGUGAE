@@ -47,6 +47,6 @@ final class MyCell: UICollectionViewCell {
   }
     func configure(with pet: SearchPetList) {
         let imageURL = URL(string: pet.filePath ?? "")
-        imageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "notFound"))
+        imageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "DognotFound"))
     }
 }

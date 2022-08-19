@@ -20,7 +20,7 @@
 		0E41E5DE28ADB29C00F9A38F /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5DD28ADB29C00F9A38F /* TokenModel.swift */; };
 		0E41E5E128ADD35A00F9A38F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5E028ADD35A00F9A38F /* API.swift */; };
 		0E41E5E328ADD38200F9A38F /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5E228ADD38200F9A38F /* APIProvider.swift */; };
-		0E46CB9C28AE8A5A00858422 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46CB9B28AE8A5A00858422 /* HomeVC.swift */; };
+		0E46CB9C28AE8A5A00858422 /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46CB9B28AE8A5A00858422 /* UserVC.swift */; };
 		0E46CBA128AF1E1E00858422 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46CBA028AF1E1E00858422 /* MyCell.swift */; };
 		0E9E10F42865734A0086D92C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E10F32865734A0086D92C /* AppDelegate.swift */; };
 		0E9E10F62865734A0086D92C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E10F52865734A0086D92C /* SceneDelegate.swift */; };
@@ -44,7 +44,7 @@
 		0E41E5DD28ADB29C00F9A38F /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 		0E41E5E028ADD35A00F9A38F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		0E41E5E228ADD38200F9A38F /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
-		0E46CB9B28AE8A5A00858422 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = ../HomeVC.swift; sourceTree = "<group>"; };
+		0E46CB9B28AE8A5A00858422 /* UserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserVC.swift; path = ../UserVC.swift; sourceTree = "<group>"; };
 		0E46CBA028AF1E1E00858422 /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		0E9E10F02865734A0086D92C /* NUGUGAE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NUGUGAE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E9E10F32865734A0086D92C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,8 +100,8 @@
 		0E1AACB528AE60D4000C5475 /* TapbarView */ = {
 			isa = PBXGroup;
 			children = (
-				0E46CB9B28AE8A5A00858422 /* HomeVC.swift */,
 				0E1AACB028AE2B97000C5475 /* SearchVC.swift */,
+				0E46CB9B28AE8A5A00858422 /* UserVC.swift */,
 			);
 			path = TapbarView;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 				0E41E5D628ADB12B00F9A38F /* LoginVC.swift in Sources */,
 				0E41E5DC28ADB26F00F9A38F /* Header.swift in Sources */,
 				0E1AACB128AE2B97000C5475 /* SearchVC.swift in Sources */,
-				0E46CB9C28AE8A5A00858422 /* HomeVC.swift in Sources */,
+				0E46CB9C28AE8A5A00858422 /* UserVC.swift in Sources */,
 				0E41E5DA28ADB1F700F9A38F /* SignUpVO.swift in Sources */,
 				0E41E5DE28ADB29C00F9A38F /* TokenModel.swift in Sources */,
 				0E41E5E328ADD38200F9A38F /* APIProvider.swift in Sources */,

@@ -11,8 +11,8 @@ import Alamofire
 import Security
 
 class Token {
-    static let accessToken = "access_token"
-    static let refreshToken = "refresh_token"
+    static let accessToken = "accessToken"
+    static let refreshToken = "refreshToken"
 }
 
 class KeyChain {

@@ -13,8 +13,8 @@ struct TokenModel: Codable {
     
     
     enum CodingKeys : String, CodingKey{
-        case access_token = "access-token"
-        case resfresh_token = "refresh-token"
+        case access_token = "accessToken"
+        case resfresh_token = "refreshToken"
     }
 }
 
