@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class ImageCollectionViewCell: UICollectionViewCell {
     let imageView = UIImageView()
@@ -27,7 +28,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     func configure(with petImage: SearchPetList) {
         let imageURL = URL(string: petImage.filePath ?? "")
-        
+        imageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "notFound"))
     }
     
 }

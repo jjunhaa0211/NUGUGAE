@@ -32,9 +32,9 @@ class LoginViewController : UIViewController {
     func postLogin() {
             let url = "https://b6ce-222-118-155-166.jp.ngrok.io/api/auth/login"
             var request = URLRequest(url: URL(string: url)!)
+        
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.timeoutInterval = 10
 
             // POST 로 보낼 정보
         let params = ["email":emailField.text!,
@@ -47,25 +47,32 @@ class LoginViewController : UIViewController {
                 print("http Body Error")
             }
 
-            AF.request(request).responseString() { (response) in
-                switch response.response?.statusCode {
+        AF.request(request).responseString() { (response) in
+            switch response.response?.statusCode {
                 case 200:
                     debugPrint(response)
-                    if let userDate = try? JSONDecoder().decode(TokenModel.self, from: response.data!) {
+                if let userDate = try? JSONDecoder().decode(TokenModel.self, from: response.data!) {
                         KeyChain.create(key: Token.accessToken, token: userDate.access_token)
                         KeyChain.create(key: Token.refreshToken, token: userDate.resfresh_token)
-                        print("토큰 저장❤️")
+                    print("로그인 성공😁")
+                    } else {
+                        print("토큰 저장실패")
                     }
+                        print("로그인 성공😁")
                         let goToMainTabBarVC = MainTapBarViewController()
                         goToMainTabBarVC.modalPresentationStyle = .fullScreen
                         self.present(goToMainTabBarVC, animated: true, completion: nil)
-                    print("로그인 성공😁")
+
                 default:
                     if response.response?.statusCode != 200 {
                         print("로그인 실패 🤬")
                         print(response)
                         print(request)
-                        debugPrint(response)
+                        let AlertMassge = UIAlertController(title: "경고", message: "로그인 실패", preferredStyle: UIAlertController.Style.alert)
+                        let ActionMassge = UIAlertAction(title: "다시 작성해주세요", style: UIAlertAction.Style.default, handler: nil)
+                        
+                        AlertMassge.addAction(ActionMassge)
+                        self.present(AlertMassge, animated: true, completion: nil)
                 }
             }
         }

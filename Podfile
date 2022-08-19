@@ -11,6 +11,8 @@ target 'NUGUGAE' do
 	pod 'SPIndicator'
 	pod 'SnapKit', '~> 5.6.0'
 	pod 'Kingfisher', '~> 5.0'
+	pod 'Then'
+
   # Pods for NUGUGAE
 
 end

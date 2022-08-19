@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftUI
 
 class HomeViewController : UICollectionViewController {
     
@@ -23,6 +25,58 @@ class HomeViewController : UICollectionViewController {
         
         collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
         collectionView.register(HomeCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeCollectionViewHeader")
+        getMySearchPetList()
+    }
+    private func getMySearchPetList() {
+        
+        let url = "https://b6ce-222-118-155-166.jp.ngrok.io/api/pet/search?s={1}&p={1}"
+        let AT : String? = KeyChain.read(key: Token.accessToken)
+        
+        let header : HTTPHeaders = [
+            "Authorization" : "Bearer \(AT!)"
+        ]
+        
+        print("")
+        print("====================================")
+        print("주 소 :: ", url)
+        print("====================================")
+        print("")
+        
+        AF.request(url, method: .get, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300)
+            .responseData { response in
+                switch response.result {
+                case .success(let res):
+                    
+                    do {
+                        let data = try JSONDecoder().decode([SearchPetList].self, from: response.data!)
+                        print(data)
+                        self.petList = data
+                    } catch {
+                        print(error)
+                    }
+                    
+                    print("")
+                    print("-------------------------------")
+                    print("응답 코드 :: ", response.response?.statusCode ?? 0)
+                    print("-------------------------------")
+                    print("응답 데이터 :: ", String(data: res, encoding: .utf8) ?? "")
+                    print("====================================")
+                    debugPrint(response)
+                    print("-------------------------------")
+                    print("")
+                    
+                case .failure(let err):
+                    print("")
+                    print("-------------------------------")
+                    print("응답 코드 :: ", response.response?.statusCode ?? 0)
+                    print("-------------------------------")
+                    print("에 러 :: ", err.localizedDescription)
+                    print("====================================")
+                    debugPrint(response)
+                    print("")
+                    break
+                }
+            }
     }
 }
 
@@ -37,13 +91,14 @@ extension HomeViewController {
     }
     
     //콜렉션뷰 셀 설정
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell() }
-//
-//        //image가 string 값으로 옴
-//        cell.imageView.image = petList[indexPath.section].filePath[indexPath.row]
-//        return cell
-    }
+//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+////        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell() }
+////
+////        //image가 string 값으로 옴
+////        cell.imageView.image = petList[indexPath.section].filePath[indexPath.row]
+////        return cell
+//        return 1
+//    }
     
     //header 설정
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -62,9 +117,27 @@ extension HomeViewController {
     }
     
     //셀 선텍시 이벤트
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sctionName = petList[indexPath.row].filePath
-        print("사진 이름 : \(sctionName)")
+//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let sctionName = petList[indexPath.row].filePath
+//        print("사진 이름 : \(sctionName)")
+//    }
+    
+}
+
+struct HomeViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        Container().edgesIgnoringSafeArea(.all)
     }
     
+    struct Container : UIViewControllerRepresentable {
+        func makeUIViewController(context: Context) -> UIViewController {
+            let layout = UICollectionViewLayout()
+            let homeViewController = HomeViewController(collectionViewLayout: layout)
+            return UINavigationController(rootViewController: homeViewController)
+        }
+        
+        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
+        
+        typealias UIViewControllerType = UIViewController
+    }
 }
