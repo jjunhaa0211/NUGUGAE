@@ -100,6 +100,9 @@ class SearchViewController: UIViewController {
                         let data = try JSONDecoder().decode([SearchPetList].self, from: response.data!)
                         print(data)
                         self.petList = data
+                        print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
+                        print("===petList는 data의 값을 보유 하고 있습니다===")
+                        print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
                         self.collectionView.reloadData()
                     } catch {
                         print(error)
@@ -110,8 +113,6 @@ class SearchViewController: UIViewController {
                     print("응답 코드 :: ", response.response?.statusCode ?? 0)
                     print("-------------------------------")
                     print("응답 데이터 :: ", String(data: res, encoding: .utf8) ?? "")
-                    print("====================================")
-                    debugPrint(response)
                     print("-------------------------------")
                     print("")
                     
