@@ -6,6 +6,7 @@ PODS:
   - Kingfisher/Core (5.15.8)
   - SnapKit (5.6.0)
   - SPIndicator (1.6.4)
+  - SwiftyJSON (4.3.0)
   - Then (3.0.0)
   - Toast-Swift (5.0.1)
 
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.0)
   - SnapKit (~> 5.6.0)
   - SPIndicator
+  - SwiftyJSON (~> 4.0)
   - Then
   - Toast-Swift (~> 5.0.1)
 
@@ -25,6 +27,7 @@ SPEC REPOS:
     - Kingfisher
     - SnapKit
     - SPIndicator
+    - SwiftyJSON
     - Then
     - Toast-Swift
 
@@ -34,9 +37,10 @@ SPEC CHECKSUMS:
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SPIndicator: 93e0a4fb23de51294ac48e874c0f081a5e293e4f
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 97b5c834a6fa345bbe09ec5668121efaf5fd9ed9
+PODFILE CHECKSUM: 79dcd5708be5179d7cd8b4b6cb6b33b29287791f
 
 COCOAPODS: 1.11.3

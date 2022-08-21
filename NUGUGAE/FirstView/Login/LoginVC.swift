@@ -21,8 +21,8 @@ class LoginViewController : UIViewController {
 //        print(KeyChain.read(key: Token.refreshToken))
         
         view.backgroundColor = .white
-        emailViewLine()
-        passwordViewLine()
+            emailViewLine()
+            passwordViewLine()
         configureLoginButton()
         configureSignUpButton()
         logoView()
@@ -30,7 +30,7 @@ class LoginViewController : UIViewController {
     }
     
     func postLogin() {
-            let url = "https://b6ce-222-118-155-166.jp.ngrok.io/api/auth/login"
+            let url = "http://192.168.107.1:8080/api/auth/login"
             var request = URLRequest(url: URL(string: url)!)
         
             request.httpMethod = "POST"

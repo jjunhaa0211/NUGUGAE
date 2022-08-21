@@ -12,7 +12,7 @@ target 'NUGUGAE' do
 	pod 'SnapKit', '~> 5.6.0'
 	pod 'Kingfisher', '~> 5.0'
 	pod 'Then'
-
+	pod 'SwiftyJSON', '~> 4.0'
   # Pods for NUGUGAE
 
 end

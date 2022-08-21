@@ -276,7 +276,7 @@ class SignUpViewController : UIViewController {
         postsignUp()
     }
     func postsignUp() {
-            let url = "https://b6ce-222-118-155-166.jp.ngrok.io/api/auth/signup"
+            let url = "http://192.168.107.1:8080/api/auth/signup"
             var request = URLRequest(url: URL(string: url)!)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -311,7 +311,7 @@ class SignUpViewController : UIViewController {
             }
     }
     func SendVerificationCodeButton() {
-        let url = "https://b6ce-222-118-155-166.jp.ngrok.io/api/auth\(AuthAPI.emailcheck.path() + "?email="+emailField.text!)"
+        let url = "http://192.168.107.1:8080/api/auth\(AuthAPI.emailcheck.path() + "?email="+emailField.text!)"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
