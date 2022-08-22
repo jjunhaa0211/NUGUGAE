@@ -8,7 +8,7 @@
 import UIKit
 
 class GridCollectionViewFlowLayout: UICollectionViewFlowLayout {
-  var ratioHeightToWidth = 1.0
+    var ratioHeightToWidth = 1.0
   var numberOfColumns = 1
   var cellSpacing = 0.0 {
     didSet {
@@ -19,7 +19,7 @@ class GridCollectionViewFlowLayout: UICollectionViewFlowLayout {
   
   override init() {
     super.init()
-    self.scrollDirection = .vertical
+      self.scrollDirection = .vertical
   }
   required init?(coder: NSCoder) {
     fatalError()

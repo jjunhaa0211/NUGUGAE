@@ -310,12 +310,12 @@ class SearchViewController: UIViewController {
         }
         
         animalButton.addTarget(self, action: #selector(animalbuttonAction), for: .touchUpInside)
-        
         }
     
     @objc func animalbuttonAction(sender: UIButton!){
         print("동물 버튼 실행됨")
         getAnyPetList()
+
     }
 
 }
@@ -328,25 +328,17 @@ extension SearchViewController: UICollectionViewDataSource,UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCell.id, for: indexPath) as! MyCell
-        
-        
-        //url 이미지화
-//        let url = URL(string: "https://www.daejeon.go.kr/FileUpload/ANI/202208/20220809040031401.jpg")!
-//
-//        if let data = try? Data(contentsOf: url) {
-//             // Create Image and Update Image View
-//             imageView.image = UIImage(data: data)
-//         }
-        //---------------
-        let petListView = petList.searchPetList[indexPath.row]
+      let petListView = petList.searchPetList[indexPath.row]
       
-//        let petListView = petList[indexPath.row].filePath
       cell.configure(with: petListView)
       
     return cell
   }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let petListIndexPath = petList.searchPetList[indexPath.row]
+        let detailViewController = PetDetailViewController()
+        detailViewController.pets = petListIndexPath
+        self.show(detailViewController, sender: nil)
         print(petListIndexPath)
         
     }
@@ -367,82 +359,4 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
     return CGSize(width: width, height: width * flowLayout.ratioHeightToWidth)
   }
-}
-
-//func getSampleImages() -> [UIImage?] {
-//  (1...100).map { _ in return UIImage(named: "AnimalNotFound") }
-//}
-
-//private extension SearchViewController {
-//    func fetchPet(of imageIndexPath: PetList.Type) {
-//        guard let url = URL(string: "https://www.daejeon.go.kr/\(imageIndexPath)"),
-//            dataTasks.firstIndex(where: { $0.originalRequest?.url == url }) == nil else { return } //이미 Beer를 패칭했음. 그렇지 않다면,
-//
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "GET"
-//
-//        let dataTask = URLSession.shared.dataTask(with: request) {[weak self] data, response, error in
-//            guard error == nil,
-//                  let self = self,
-//                  let response = response as? HTTPURLResponse,
-//                  let data = data,
-//                  let pets = try? JSONDecoder().decode([SearchPetList].self, from: data) else {
-//                    print("ERROR: URLSession data task error \(error?.localizedDescription ?? "")")
-//                    return
-//            }
-//
-//            switch response.statusCode {
-//            case (200...299):
-//                self.petList += pets
-//                self.currentPage += 1
-//
-//                DispatchQueue.main.async {
-//                    self.collectionView.reloadData()
-//                }
-//            case (400...499):
-//                print(
-//                    """
-//                    ERROR: Client ERROR \(response.statusCode)
-//                    Response: \(response)
-//                    """
-//                )
-//            case (500...599):
-//                print(
-//                    """
-//                    ERROR: Server ERROR \(response.statusCode)
-//                    Response: \(response)
-//                    """
-//                )
-//            default:
-//                print(
-//                    """
-//                    ERROR: \(response.statusCode)
-//                    Response: \(response)
-//                    """
-//                )
-//            }
-//        }
-//        dataTask.resume()
-//        dataTasks.append(dataTask)
-//    }
-//}
-
-import SwiftUI
-
-struct PeedViewControllerRepresentable: UIViewControllerRepresentable {
-    
-    typealias UIViewControllerType = SearchViewController
-
-    func makeUIViewController(context: Context) -> SearchViewController {
-        return SearchViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: SearchViewController, context: Context) { }
-}
-
-@available(iOS 13.0.0, *)
-struct PeedViewPreview: PreviewProvider {
-    static var previews: some View {
-        PeedViewControllerRepresentable()
-    }
 }
