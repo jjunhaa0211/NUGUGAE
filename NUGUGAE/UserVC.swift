@@ -16,6 +16,6 @@ class UserViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = ColorC
+        view.backgroundColor = .white
     }
 }

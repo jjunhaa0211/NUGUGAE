@@ -54,7 +54,7 @@ class SearchViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
       
-      view.backgroundColor = ColorC
+      view.backgroundColor = .white
     
     self.view.addSubview(self.collectionView)
 
@@ -78,11 +78,116 @@ class SearchViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getPetList()
+        getDogPetList()
     }
-    private func getPetList() {
+    private func getDogPetList() {
         
         let url = "http://10.156.147.167:8080/api/pet/search?s=1&p=1"
+        let AT : String? = KeyChain.read(key: Token.accessToken)
+        let header : HTTPHeaders = [
+            "Authorization" : "Bearer \(AT!)"
+        ]
+        
+        print("====================================")
+        print("주 소 :: ", url)
+        print("====================================")
+        
+        AF.request(url, method: .get, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300)
+            .responseData { response in
+                switch response.result {
+                case .success(let res):
+                    do {
+                        let data = try JSONDecoder().decode(PetPosts.self, from: response.data!)
+                        print(data)
+                        self.petList = data
+                        print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
+                        print("===petList는 data의 값을 보유 하고 있습니다===")
+                        print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
+                        self.collectionView.reloadData()
+                    } catch {
+                        print("ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ")
+                        print(error)
+                        //debugPrint(response)
+                        print("ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ")
+                    }
+                    
+                    print("")
+                    print("-------------------------------")
+                    print("응답 코드 :: ", response.response?.statusCode ?? 0)
+                    print("-------------------------------")
+                    print("응답 데이터 :: ", String(data: res, encoding: .utf8) ?? "")
+                    print("-------------------------------")
+                    print("")
+                    
+                case .failure(let err):
+                    print("")
+                    print("-------------------------------")
+                    print("응답 코드 :: ", response.response?.statusCode ?? 0)
+                    print("-------------------------------")
+                    print("에 러 :: ", err.localizedDescription)
+                    print("====================================")
+                    debugPrint(response)
+                    print("")
+                    break
+                }
+            }
+    }
+    private func getCatPetList() {
+        
+        let url = "http://10.156.147.167:8080/api/pet/search?s=2&p=1"
+        let AT : String? = KeyChain.read(key: Token.accessToken)
+        let header : HTTPHeaders = [
+            "Authorization" : "Bearer \(AT!)"
+        ]
+        
+        print("====================================")
+        print("주 소 :: ", url)
+        print("====================================")
+        
+        AF.request(url, method: .get, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300)
+            .responseData { response in
+                switch response.result {
+                case .success(let res):
+                    do {
+                        let data = try JSONDecoder().decode(PetPosts.self, from: response.data!)
+                        print(data)
+                        self.petList = data
+                        print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
+                        print("===petList는 data의 값을 보유 하고 있습니다===")
+                        print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
+                        self.collectionView.reloadData()
+                    } catch {
+                        print("ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ")
+                        print(error)
+                        //debugPrint(response)
+                        print("ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ")
+                    }
+                    
+                    print("")
+                    print("-------------------------------")
+                    print("응답 코드 :: ", response.response?.statusCode ?? 0)
+                    print("-------------------------------")
+                    print("응답 데이터 :: ", String(data: res, encoding: .utf8) ?? "")
+                    print("-------------------------------")
+                    print("")
+                    
+                case .failure(let err):
+                    print("")
+                    print("-------------------------------")
+                    print("응답 코드 :: ", response.response?.statusCode ?? 0)
+                    print("-------------------------------")
+                    print("에 러 :: ", err.localizedDescription)
+                    print("====================================")
+                    debugPrint(response)
+                    print("")
+                    break
+                }
+            }
+    }
+    
+    private func getAnyPetList() {
+        
+        let url = "http://10.156.147.167:8080/api/pet/search?s=3&p=1"
         let AT : String? = KeyChain.read(key: Token.accessToken)
         let header : HTTPHeaders = [
             "Authorization" : "Bearer \(AT!)"
@@ -158,6 +263,7 @@ class SearchViewController: UIViewController {
     
     @objc func CatbuttonAction(sender: UIButton!){
         print("고양이 버튼 실행됨")
+        getCatPetList()
     }
     func DogButton() {
         dogButton.setTitle("Dog", for: .normal)
@@ -183,6 +289,7 @@ class SearchViewController: UIViewController {
     
     @objc func DogbuttonAction(sender: UIButton!){
         print("강아지 버튼 실행됨")
+        getDogPetList()
     }
     func animalsButton() {
         animalButton.setTitle("animal", for: .normal)
@@ -208,6 +315,7 @@ class SearchViewController: UIViewController {
     
     @objc func animalbuttonAction(sender: UIButton!){
         print("동물 버튼 실행됨")
+        getAnyPetList()
     }
 
 }
