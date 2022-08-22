@@ -36,7 +36,7 @@ final class MyCell: UICollectionViewCell {
     ])
   }
     func configure(with pet: SearchPetList) {
-        let imageURL = URL(string: pet.filePath ?? "")
+        let imageURL = URL(string: "https://www.daejeon.go.kr/FileUpload/ANI/202208/20220809040031401.jpg")
         imageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "DognotFound"))
     }
 }

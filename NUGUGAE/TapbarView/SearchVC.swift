@@ -10,7 +10,7 @@ import Alamofire
 
 class SearchViewController: UIViewController {
     
-    var petList: [PetPosts] = []
+    var petList: PetPosts = PetPosts(searchPetList: [])
     
     var dataTasks = [URLSessionTask]()
     
@@ -82,25 +82,22 @@ class SearchViewController: UIViewController {
     }
     private func getPetList() {
         
-        let url = "http://192.168.107.1:8080/api/pet/search?s=1&p=1"
+        let url = "http://10.156.147.167:8080/api/pet/search?s=1&p=1"
         let AT : String? = KeyChain.read(key: Token.accessToken)
         let header : HTTPHeaders = [
             "Authorization" : "Bearer \(AT!)"
         ]
         
-        print("")
         print("====================================")
         print("주 소 :: ", url)
         print("====================================")
-        print("")
         
         AF.request(url, method: .get, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300)
             .responseData { response in
                 switch response.result {
                 case .success(let res):
-
                     do {
-                        let data = try JSONDecoder().decode([PetPosts].self, from: response.data!)
+                        let data = try JSONDecoder().decode(PetPosts.self, from: response.data!)
                         print(data)
                         self.petList = data
                         print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
@@ -108,6 +105,9 @@ class SearchViewController: UIViewController {
                         print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
                         self.collectionView.reloadData()
                     } catch {
+                        print("ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ")
+                        print(error)
+                        //debugPrint(response)
                         print("ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ")
                     }
                     
@@ -215,7 +215,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UICollectionViewDataSource,UICollectionViewDelegate {
     
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      return petList.count
+      return petList.searchPetList.count
   }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       
@@ -223,23 +223,22 @@ extension SearchViewController: UICollectionViewDataSource,UICollectionViewDeleg
         
         
         //url 이미지화
-        let url = URL(string: "https://www.daejeon.go.kr/FileUpload/ANI/202208/20220809040031401.jpg")!
-        
-        if let data = try? Data(contentsOf: url) {
-             // Create Image and Update Image View
-             imageView.image = UIImage(data: data)
-         }
+//        let url = URL(string: "https://www.daejeon.go.kr/FileUpload/ANI/202208/20220809040031401.jpg")!
+//
+//        if let data = try? Data(contentsOf: url) {
+//             // Create Image and Update Image View
+//             imageView.image = UIImage(data: data)
+//         }
         //---------------
+        let petListView = petList.searchPetList[indexPath.row]
       
 //        let petListView = petList[indexPath.row].filePath
-//      cell.configure(with: petListView)
-        
-        
+      cell.configure(with: petListView)
       
     return cell
   }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let petListIndexPath = petList[indexPath.row]
+        let petListIndexPath = petList.searchPetList[indexPath.row]
         print(petListIndexPath)
         
     }

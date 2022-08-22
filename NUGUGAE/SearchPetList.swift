@@ -17,9 +17,14 @@ struct SearchPetList: Codable {
     let adoptionStatusCD: Int
     let age: String
     let classification: Int
-    let filePath, foundPlace: String
-    let gender, gu: Int
-    let hairColor, memo, rescueDate, species: String
+    let filePath : String
+    let foundPlace: String
+    let gender : Int
+    let gu: Int
+    let hairColor : String
+    let memo : String
+    let rescueDate : String
+    let species: String
     let weight: String
 
     enum CodingKeys: String, CodingKey {
