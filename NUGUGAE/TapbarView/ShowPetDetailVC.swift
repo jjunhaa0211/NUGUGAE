@@ -1,22 +1,24 @@
 //
-//  PetDetailVC.swift
+//  SavePetDetailVC.swift
 //  NUGUGAE
 //
-//  Created by 박준하 on 2022/08/22.
+//  Created by 박준하 on 2022/08/23.
 //
 
 import UIKit
 
-class PetDetailViewController: UITableViewController {
+
+class ShowPetDetailViewController: UITableViewController {
     
-    var pets: SearchPetList?
+    var pets: Pet?
+    
+    var takeButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "petDetailListCell")
-        tableView.register(CustomCell.self, forCellReuseIdentifier: "CustomCell")
         tableView.rowHeight = UITableView.automaticDimension
         
         let headerView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 300))
@@ -25,12 +27,16 @@ class PetDetailViewController: UITableViewController {
         headerView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "DognotFound"))
         
         tableView.tableHeaderView = headerView
+        
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
 
 }
-
 //UITableView DataSource, Delegate
-extension PetDetailViewController {
+extension ShowPetDetailViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 12
     }
@@ -110,21 +116,14 @@ extension PetDetailViewController {
             cell.textLabel?.text = "\(pets!.weight)"
             return cell
         case 11:
-//            cell.textLabel?.text = "text click"
-//            return cell
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: CustomCell.id, for: indexPath) as! CustomCell
-//            cell2.customButton.addTarget(cell2, action: #selector(clicked), for: .touchUpOutside)
-            return cell2
+//            cell.
+            return cell
         default:
             cell.textLabel?.text = "🍎"
             return cell
         }
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.section == 11) {
-            print("찜하기")
-        }
+    @objc func loginbuttonAction(sender: UIButton!){
+        print(" 로그인 버튼 실행됨")
     }
 }
-

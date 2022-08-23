@@ -12,10 +12,6 @@ class SearchViewController: UIViewController {
     
     var petList: PetPosts = PetPosts(searchPetList: [])
     
-    var dataTasks = [URLSessionTask]()
-    
-    var currentPage = 1
-    
     let dogButton = UIButton()
     let catButton  = UIButton()
     let animalButton = UIButton()
@@ -25,12 +21,7 @@ class SearchViewController: UIViewController {
     let dog : String = "DognotFound"
     let cat : String = "CatNotFound"
     let animal : String = "AnimalNotFound"
-    
-//    private var dataSource = getSampleImages()
-    
-    var imageView = UIImageView()
-    
-    
+
   private let gridFlowLayout: GridCollectionViewFlowLayout = {
     let layout = GridCollectionViewFlowLayout()
     layout.cellSpacing = 8
@@ -82,7 +73,7 @@ class SearchViewController: UIViewController {
     }
     private func getDogPetList() {
         
-        let url = "http://10.156.147.167:8080/api/pet/search?s=1&p=1"
+        let url = "http://192.168.154.1:8080/api/pet/search?s=1&p=1"
         let AT : String? = KeyChain.read(key: Token.accessToken)
         let header : HTTPHeaders = [
             "Authorization" : "Bearer \(AT!)"
@@ -134,7 +125,7 @@ class SearchViewController: UIViewController {
     }
     private func getCatPetList() {
         
-        let url = "http://10.156.147.167:8080/api/pet/search?s=2&p=1"
+        let url = "http://192.168.154.1:8080/api/pet/search?s=2&p=1"
         let AT : String? = KeyChain.read(key: Token.accessToken)
         let header : HTTPHeaders = [
             "Authorization" : "Bearer \(AT!)"
@@ -187,7 +178,7 @@ class SearchViewController: UIViewController {
     
     private func getAnyPetList() {
         
-        let url = "http://10.156.147.167:8080/api/pet/search?s=3&p=1"
+        let url = "http://192.168.154.1:8080/api/pet/search?s=3&p=1"
         let AT : String? = KeyChain.read(key: Token.accessToken)
         let header : HTTPHeaders = [
             "Authorization" : "Bearer \(AT!)"
@@ -340,7 +331,6 @@ extension SearchViewController: UICollectionViewDataSource,UICollectionViewDeleg
         detailViewController.pets = petListIndexPath
         self.show(detailViewController, sender: nil)
         print(petListIndexPath)
-        
     }
 }
 
@@ -348,15 +338,21 @@ extension SearchViewController: UICollectionViewDataSource,UICollectionViewDeleg
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    guard
-      let flowLayout = collectionViewLayout as? GridCollectionViewFlowLayout,
+    guard let flowLayout = collectionViewLayout as? GridCollectionViewFlowLayout,
       flowLayout.numberOfColumns > 0
     else { fatalError() }
-    
+
     let widthOfCells = collectionView.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right)
     let widthOfSpacing = CGFloat(flowLayout.numberOfColumns - 1) * flowLayout.cellSpacing
     let width = (widthOfCells - widthOfSpacing) / CGFloat(flowLayout.numberOfColumns)
 
     return CGSize(width: width, height: width * flowLayout.ratioHeightToWidth)
+//      return CGSize(width: view.frame.width, height: 150)
   }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
 }

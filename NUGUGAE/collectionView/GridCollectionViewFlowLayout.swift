@@ -8,7 +8,7 @@
 import UIKit
 
 class GridCollectionViewFlowLayout: UICollectionViewFlowLayout {
-    var ratioHeightToWidth = 1.0
+    var ratioHeightToWidth = 0.7
   var numberOfColumns = 1
   var cellSpacing = 0.0 {
     didSet {

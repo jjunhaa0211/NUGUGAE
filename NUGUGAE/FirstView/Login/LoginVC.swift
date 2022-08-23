@@ -30,7 +30,7 @@ class LoginViewController : UIViewController {
     }
     
     func postLogin() {
-            let url = "http://10.156.147.167:8080/api/auth/login"
+            let url = "http://192.168.154.1:8080/api/auth/login"
             var request = URLRequest(url: URL(string: url)!)
         
             request.httpMethod = "POST"

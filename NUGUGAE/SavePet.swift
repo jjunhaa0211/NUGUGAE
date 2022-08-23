@@ -7,17 +7,18 @@
 
 import Foundation
 
-struct SavePet : Codable {
-    let adoptionStatusCd : Int
-    let age : String
-    let classification : Int
-    let filePath : String
-    let foundPlace : String
-    let gender: String
-    let gn : Int
-    let hairColor : String
-    let memo : String
-    let rescueDate : String
-    let species : String
-    let weight : String
+// MARK: - Welcome
+struct SavePet: Codable {
+    let adoptionStatusCD: Int
+    let age: String
+    let classification: Int
+    let filePath, foundPlace: String
+    let gender, gu: Int
+    let hairColor, memo, rescueDate, species: String
+    let weight: String
+
+    enum CodingKeys: String, CodingKey {
+        case adoptionStatusCD = "adoptionStatusCd"
+        case age, classification, filePath, foundPlace, gender, gu, hairColor, memo, rescueDate, species, weight
+    }
 }

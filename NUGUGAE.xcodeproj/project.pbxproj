@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0E1AACB128AE2B97000C5475 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AACB028AE2B97000C5475 /* SearchVC.swift */; };
-		0E1AACB728AE62F5000C5475 /* PetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AACB628AE62F4000C5475 /* PetList.swift */; };
 		0E1AACBD28AE6F15000C5475 /* SavePet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AACBC28AE6F15000C5475 /* SavePet.swift */; };
 		0E1AACBF28AE715C000C5475 /* SearchPetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AACBE28AE715C000C5475 /* SearchPetList.swift */; };
 		0E1DA88328B3947B00241C8C /* PetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DA88228B3947B00241C8C /* PetDetailVC.swift */; };
+		0E1DA88628B496E100241C8C /* ShowPetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DA88528B496E100241C8C /* ShowPetDetailVC.swift */; };
+		0E1DA88828B4976700241C8C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DA88728B4976700241C8C /* UserCell.swift */; };
+		0E1DA89D28B4B9B400241C8C /* ShowMyPet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DA89C28B4B9B400241C8C /* ShowMyPet.swift */; };
+		0E1DA8A128B5076600241C8C /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DA8A028B5076600241C8C /* CustomCell.swift */; };
 		0E3DD44328ADFA1C00DBF1C5 /* MainTapBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3DD44228ADFA1C00DBF1C5 /* MainTapBarVC.swift */; };
 		0E41E5D428ADB0E100F9A38F /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D328ADB0E100F9A38F /* FirstVC.swift */; };
 		0E41E5D628ADB12B00F9A38F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D528ADB12B00F9A38F /* LoginVC.swift */; };
@@ -33,10 +36,13 @@
 
 /* Begin PBXFileReference section */
 		0E1AACB028AE2B97000C5475 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		0E1AACB628AE62F4000C5475 /* PetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PetList.swift; path = "/Users/junha/Desktop/NUGUGAE!/NUGUGAE/NUGUGAE/PetList.swift"; sourceTree = "<absolute>"; };
 		0E1AACBC28AE6F15000C5475 /* SavePet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePet.swift; sourceTree = "<group>"; };
 		0E1AACBE28AE715C000C5475 /* SearchPetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchPetList.swift; path = "/Users/junha/Desktop/NUGUGAE!/NUGUGAE/NUGUGAE/SearchPetList.swift"; sourceTree = "<absolute>"; };
 		0E1DA88228B3947B00241C8C /* PetDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailVC.swift; sourceTree = "<group>"; };
+		0E1DA88528B496E100241C8C /* ShowPetDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPetDetailVC.swift; sourceTree = "<group>"; };
+		0E1DA88728B4976700241C8C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		0E1DA89C28B4B9B400241C8C /* ShowMyPet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyPet.swift; sourceTree = "<group>"; };
+		0E1DA8A028B5076600241C8C /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		0E3DD44228ADFA1C00DBF1C5 /* MainTapBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapBarVC.swift; sourceTree = "<group>"; };
 		0E41E5D328ADB0E100F9A38F /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		0E41E5D528ADB12B00F9A38F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -103,8 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				0E1AACB028AE2B97000C5475 /* SearchVC.swift */,
-				0E1DA88228B3947B00241C8C /* PetDetailVC.swift */,
 				0E46CB9B28AE8A5A00858422 /* UserVC.swift */,
+				0E1DA88528B496E100241C8C /* ShowPetDetailVC.swift */,
+				0E1DA88228B3947B00241C8C /* PetDetailVC.swift */,
+				0E1DA8A028B5076600241C8C /* CustomCell.swift */,
 			);
 			path = TapbarView;
 			sourceTree = "<group>";
@@ -120,13 +128,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0E46CB9F28AF1E0800858422 /* test */ = {
+		0E46CB9F28AF1E0800858422 /* collectionView */ = {
 			isa = PBXGroup;
 			children = (
 				0E46CBA028AF1E1E00858422 /* MyCell.swift */,
+				0E1DA88728B4976700241C8C /* UserCell.swift */,
 				0EF94C9F28AF5224005E22CB /* GridCollectionViewFlowLayout.swift */,
 			);
-			path = test;
+			path = collectionView;
 			sourceTree = "<group>";
 		};
 		0E9E10E72865734A0086D92C = {
@@ -159,9 +168,9 @@
 				0E9E10FC2865734A0086D92C /* Assets.xcassets */,
 				0E9E10FE2865734A0086D92C /* LaunchScreen.storyboard */,
 				0E1AACBE28AE715C000C5475 /* SearchPetList.swift */,
-				0E1AACB628AE62F4000C5475 /* PetList.swift */,
 				0E1AACBC28AE6F15000C5475 /* SavePet.swift */,
-				0E46CB9F28AF1E0800858422 /* test */,
+				0E1DA89C28B4B9B400241C8C /* ShowMyPet.swift */,
+				0E46CB9F28AF1E0800858422 /* collectionView */,
 				0E9E11012865734A0086D92C /* Info.plist */,
 			);
 			path = NUGUGAE;
@@ -300,19 +309,22 @@
 			files = (
 				0E1AACBD28AE6F15000C5475 /* SavePet.swift in Sources */,
 				0E41E5E128ADD35A00F9A38F /* API.swift in Sources */,
+				0E1DA8A128B5076600241C8C /* CustomCell.swift in Sources */,
 				0E41E5D428ADB0E100F9A38F /* FirstVC.swift in Sources */,
 				0E9E10F42865734A0086D92C /* AppDelegate.swift in Sources */,
-				0E1AACB728AE62F5000C5475 /* PetList.swift in Sources */,
 				0E1AACBF28AE715C000C5475 /* SearchPetList.swift in Sources */,
 				0E41E5D628ADB12B00F9A38F /* LoginVC.swift in Sources */,
 				0E41E5DC28ADB26F00F9A38F /* Header.swift in Sources */,
 				0E1AACB128AE2B97000C5475 /* SearchVC.swift in Sources */,
+				0E1DA88828B4976700241C8C /* UserCell.swift in Sources */,
+				0E1DA88628B496E100241C8C /* ShowPetDetailVC.swift in Sources */,
 				0E46CB9C28AE8A5A00858422 /* UserVC.swift in Sources */,
 				0E41E5DA28ADB1F700F9A38F /* SignUpVO.swift in Sources */,
 				0E41E5DE28ADB29C00F9A38F /* TokenModel.swift in Sources */,
 				0E41E5E328ADD38200F9A38F /* APIProvider.swift in Sources */,
 				0E3DD44328ADFA1C00DBF1C5 /* MainTapBarVC.swift in Sources */,
 				0E46CBA128AF1E1E00858422 /* MyCell.swift in Sources */,
+				0E1DA89D28B4B9B400241C8C /* ShowMyPet.swift in Sources */,
 				0E41E5D828ADB19700F9A38F /* SignUpVC.swift in Sources */,
 				0EF94CA028AF5224005E22CB /* GridCollectionViewFlowLayout.swift in Sources */,
 				0E9E10F62865734A0086D92C /* SceneDelegate.swift in Sources */,

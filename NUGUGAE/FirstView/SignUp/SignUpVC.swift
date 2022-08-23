@@ -276,7 +276,7 @@ class SignUpViewController : UIViewController {
         postsignUp()
     }
     func postsignUp() {
-            let url = "http://10.156.147.167:8080/api/auth/signup"
+            let url = "http://192.168.154.1:8080/api/auth/signup"
             var request = URLRequest(url: URL(string: url)!)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -303,7 +303,11 @@ class SignUpViewController : UIViewController {
                     debugPrint(response)
                     print("url 경로 : \(request.url as Any)")
                     print("✅POST 성공✅")
-                    self.gotoFirstView()
+                    
+                    let goToMainTabBarVC = FirstViewController()
+                    goToMainTabBarVC.modalPresentationStyle = .fullScreen
+                    self.present(goToMainTabBarVC, animated: true, completion: nil)
+                    
                     print("이동 성공 🙃")
                 case .failure(let error):
                     print("🚫 Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")
@@ -311,7 +315,7 @@ class SignUpViewController : UIViewController {
             }
     }
     func SendVerificationCodeButton() {
-        let url = "http://10.156.147.167:8080/api/auth\(AuthAPI.emailcheck.path() + "?email="+emailField.text!)"
+        let url = "http://192.168.154.1:8080/api/auth\(AuthAPI.emailcheck.path() + "?email="+emailField.text!)"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

@@ -42,6 +42,6 @@ class HTTPClient : HTTPClientProvider {
                           interceptor: nil)
     }
     
-    let baseURL = "http://10.156.147.167:8080/api/auth"
+    let baseURL = "http://192.168.154.1:8080/api/auth"
     
 }
