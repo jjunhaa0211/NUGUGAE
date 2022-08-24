@@ -8,8 +8,19 @@
 import UIKit
 
 class MainTapBarViewController : UITabBarController {
+    
+    let ColorC = UIColor(named: "Color-c")
+    let ColorA = UIColor(named: "Color-a")
+    
+    let appearance = UITabBarAppearance()
+    
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = ColorC
+                tabBar.standardAppearance = appearance
+                tabBar.scrollEdgeAppearance = tabBar.standardAppearance
             
             //어떤건지 정의해줌
             let searchVC = SearchViewController()

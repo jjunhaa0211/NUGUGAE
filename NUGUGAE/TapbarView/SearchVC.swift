@@ -45,7 +45,7 @@ class SearchViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
       
-      view.backgroundColor = ColorA
+      view.backgroundColor = .white
     
     self.view.addSubview(self.collectionView)
 
@@ -234,17 +234,21 @@ class SearchViewController: UIViewController {
         catButton.setTitle("Cat", for: .normal)
         catButton.setTitleColor(.white, for: .normal)
         catButton.backgroundColor = ColorA
-        catButton.layer.cornerRadius = 10
+//        catButton.layer.cornerRadius = 10
         
         view.addSubview(catButton)
         
-        catButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        catButton.contentVerticalAlignment = .bottom
+        // 버튼의 top inset을 18만큼 부여
+        catButton.contentEdgeInsets.bottom = 15
+        
+        catButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         
         catButton.snp.makeConstraints{
-            $0.height.equalTo(55)
-            $0.width.equalTo(105)
+            $0.height.equalTo(120)
+            $0.width.equalTo(120)
             $0.trailing.equalTo(0)
-            $0.top.equalTo(60)
+            $0.top.equalTo(0)
             $0.leading.equalTo(280)
         }
         
@@ -260,17 +264,23 @@ class SearchViewController: UIViewController {
         dogButton.setTitle("Dog", for: .normal)
         dogButton.setTitleColor(.white, for: .normal)
         dogButton.backgroundColor = ColorA
-        dogButton.layer.cornerRadius = 10
+//        dogButton.layer.cornerRadius = 10
         
         view.addSubview(dogButton)
         
-        dogButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+    
+        dogButton.contentVerticalAlignment = .bottom
+        // 버튼의 top inset을 18만큼 부여
+        dogButton.contentEdgeInsets.bottom = 15
+        
+        dogButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        
         
         dogButton.snp.makeConstraints{
-            $0.height.equalTo(55)
-            $0.width.equalTo(105)
+            $0.height.equalTo(120)
+            $0.width.equalTo(120)
             $0.trailing.equalTo(-280)
-            $0.top.equalTo(60)
+            $0.top.equalTo(0)
             $0.leading.equalTo(0)
         }
         
@@ -287,18 +297,22 @@ class SearchViewController: UIViewController {
         animalButton.setTitle("animal", for: .normal)
         animalButton.setTitleColor(.white, for: .normal)
         animalButton.backgroundColor = ColorA
-        animalButton.layer.cornerRadius = 10
+//        animalButton.layer.cornerRadius = 10
         
         view.addSubview(animalButton)
         
-        animalButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        animalButton.contentVerticalAlignment = .bottom
+        // 버튼의 top inset을 18만큼 부여
+        animalButton.contentEdgeInsets.bottom = 15
+        
+        animalButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         
         animalButton.snp.makeConstraints{
-            $0.height.equalTo(55)
-            $0.width.equalTo(105)
-            $0.trailing.equalTo(-150)
-            $0.top.equalTo(60)
-            $0.leading.equalTo(150)
+            $0.height.equalTo(120)
+            $0.width.equalTo(120)
+            $0.trailing.equalTo(-148)
+            $0.top.equalTo(0)
+            $0.leading.equalTo(148)
         }
         
         animalButton.addTarget(self, action: #selector(animalbuttonAction), for: .touchUpInside)
