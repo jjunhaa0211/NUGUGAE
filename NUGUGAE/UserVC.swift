@@ -12,7 +12,7 @@ import Alamofire
 
 class UserViewController : UIViewController {
     
-    var showList: ShowMyPet = ShowMyPet(ShowpPets: [])
+    var showList: ShowMyPet = ShowMyPet(pets: [])
 
     let ColorC = UIColor(named: "Color-c")
     
@@ -52,10 +52,6 @@ class UserViewController : UIViewController {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         showPetList()
     }
     
@@ -80,13 +76,12 @@ class UserViewController : UIViewController {
                         print(data)
                         self.showList = data
                         print("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎")
-                        print("===showList는 data의 값을 보유 하고 있습니다===")
+                        print("===showPet는 data의 값을 보유 하고 있습니다===")
                         print("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎")
                         self.collectionView.reloadData()
                     } catch {
                         print("ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ")
                         print(error)
-                        //debugPrint(response)
                         print("ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ")
                     }
                     
@@ -117,24 +112,26 @@ class UserViewController : UIViewController {
 extension UserViewController: UICollectionViewDataSource,UICollectionViewDelegate {
     
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      return showList.ShowpPets.count
+      return showList.pets.count
   }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCell.id, for: indexPath) as! UserCell
-        let petListView = showList.ShowpPets[indexPath.row]
+        let petListView = showList.pets[indexPath.row]
+        
         cell.configure(with: petListView)
       
     return cell
   }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let petListIndexPath = showList.ShowpPets[indexPath.row]
+        let petListIndexPath = showList.pets[indexPath.row]
         let showDetailViewController = ShowPetDetailViewController()
         showDetailViewController.pets = petListIndexPath
         self.show(showDetailViewController, sender: nil)
         print(petListIndexPath)
     }
 }
+
 
 
 

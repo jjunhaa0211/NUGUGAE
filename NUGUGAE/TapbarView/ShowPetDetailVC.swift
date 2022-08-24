@@ -81,7 +81,7 @@ extension ShowPetDetailViewController {
         
         switch indexPath.section {
         case 0:
-            cell.textLabel?.text = "\(pets!.adoptionStatusCD)"
+            cell.textLabel?.text = "\(pets!.adoptionStatusCd)"
             return cell
         case 1:
             cell.textLabel?.text = pets!.age

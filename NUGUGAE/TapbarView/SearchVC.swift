@@ -45,7 +45,7 @@ class SearchViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
       
-      view.backgroundColor = .white
+      view.backgroundColor = ColorA
     
     self.view.addSubview(self.collectionView)
 
@@ -232,7 +232,7 @@ class SearchViewController: UIViewController {
     
     func CatButton() {
         catButton.setTitle("Cat", for: .normal)
-        catButton.setTitleColor(ColorC, for: .normal)
+        catButton.setTitleColor(.white, for: .normal)
         catButton.backgroundColor = ColorA
         catButton.layer.cornerRadius = 10
         
@@ -258,7 +258,7 @@ class SearchViewController: UIViewController {
     }
     func DogButton() {
         dogButton.setTitle("Dog", for: .normal)
-        dogButton.setTitleColor(ColorC, for: .normal)
+        dogButton.setTitleColor(.white, for: .normal)
         dogButton.backgroundColor = ColorA
         dogButton.layer.cornerRadius = 10
         
@@ -284,7 +284,7 @@ class SearchViewController: UIViewController {
     }
     func animalsButton() {
         animalButton.setTitle("animal", for: .normal)
-        animalButton.setTitleColor(ColorC, for: .normal)
+        animalButton.setTitleColor(.white, for: .normal)
         animalButton.backgroundColor = ColorA
         animalButton.layer.cornerRadius = 10
         
