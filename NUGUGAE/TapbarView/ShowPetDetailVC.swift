@@ -12,13 +12,18 @@ class ShowPetDetailViewController: UITableViewController {
     
     var pets: Pet?
     
+    let ColorC = UIColor(named: "Color-c")
+    let ColorB = UIColor(named: "Color-b")
+    let ColorA = UIColor(named: "Color-a")
+    
     var takeButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "petDetailListCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ShowPetDetailDetailListCell")
+        tableView.register(DelPetButtonCell.self, forCellReuseIdentifier: "DelPetButtonCell")
         tableView.rowHeight = UITableView.automaticDimension
         
         let headerView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 300))
@@ -29,16 +34,11 @@ class ShowPetDetailViewController: UITableViewController {
         tableView.tableHeaderView = headerView
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-
 }
 //UITableView DataSource, Delegate
 extension ShowPetDetailViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 12
+        return 11
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,22 +52,20 @@ extension ShowPetDetailViewController {
         case 1:
             return "age"
         case 2:
-            return "classification"
-        case 3:
             return "foundPlace"
-        case 4:
+        case 3:
             return "gender"
-        case 5:
+        case 4:
             return "gu"
-        case 6:
+        case 5:
             return "hairColor"
-        case 7:
+        case 6:
             return "memo"
-        case 8:
+        case 7:
             return "rescueDate"
-        case 9:
+        case 8:
             return "species"
-        case 10:
+        case 9:
             return "weight"
         default:
             return nil
@@ -75,7 +73,7 @@ extension ShowPetDetailViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "petDetailListCell")
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "ShowPetDetailListCell2")
         cell.textLabel?.numberOfLines = 0
         cell.selectionStyle = .none
         
@@ -87,41 +85,59 @@ extension ShowPetDetailViewController {
             cell.textLabel?.text = pets!.age
             return cell
         case 2:
-            cell.textLabel?.text = "\(pets!.classification)"
-            return cell
-        case 3:
             cell.textLabel?.text = "\(pets!.foundPlace)"
             return cell
+        case 3:
+            if(pets!.gender == 1) {
+                cell.textLabel?.text = "수컷"
+            } else {
+                cell.textLabel?.text = "암컷"
+            }
+            return cell
         case 4:
-            cell.textLabel?.text = "\(pets!.gender)"
+            if(pets!.gu == 1){
+                cell.textLabel?.text = "동구"
+            } else if(pets!.gu == 2) {
+                cell.textLabel?.text = "중구"
+            }else if(pets!.gu == 3) {
+                cell.textLabel?.text = "서구"
+            }else if(pets!.gu == 4) {
+                cell.textLabel?.text = "유성구"
+            } else {
+                cell.textLabel?.text = "대덕구"
+            }
+
             return cell
         case 5:
-            cell.textLabel?.text = "\(pets!.gu)"
-            return cell
-        case 6:
             cell.textLabel?.text = "\(pets!.hairColor)"
             return cell
-        case 7:
+        case 6:
             cell.textLabel?.text = "\(pets!.memo)"
             return cell
-        case 8:
+        case 7:
             cell.textLabel?.text = "\(pets!.rescueDate)"
             return cell
-        case 9:
+        case 8:
             cell.textLabel?.text = "\(pets!.species)"
             return cell
-        case 10:
+        case 9:
             cell.textLabel?.text = "\(pets!.weight)"
             return cell
-        case 11:
-//            cell.
-            return cell
+        case 10:
+            let cell3 = tableView.dequeueReusableCell(withIdentifier: DelPetButtonCell.id, for: indexPath) as! DelPetButtonCell
+            cell3.textLabel?.text = "                                  찜하기"
+            cell3.backgroundColor = ColorB
+            cell3.tintColor = .white
+            return cell3
         default:
             cell.textLabel?.text = "🍎"
             return cell
         }
     }
-    @objc func loginbuttonAction(sender: UIButton!){
-        print(" 로그인 버튼 실행됨")
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.section == 10) {
+            print("삭제함 ㅅㄱ")
+        }
     }
+    
 }

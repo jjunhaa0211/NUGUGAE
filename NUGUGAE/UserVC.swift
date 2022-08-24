@@ -57,7 +57,7 @@ class UserViewController : UIViewController {
     
     private func showPetList() {
         
-        let url = "http://10.156.147.167:8080/api/pet/showMyPet"
+        let url = "http://192.168.78.1:8080/api/pet/showMyPet"
         let AT : String? = KeyChain.read(key: Token.accessToken)
         let header : HTTPHeaders = [
             "Authorization" : "Bearer \(AT!)"
@@ -137,22 +137,24 @@ extension UserViewController: UICollectionViewDataSource,UICollectionViewDelegat
 
 extension UserViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      guard let flowLayout = collectionViewLayout as? GridCollectionViewFlowLayout,
-        flowLayout.numberOfColumns > 0
-      else { fatalError() }
+    guard let flowLayout = collectionViewLayout as? GridCollectionViewFlowLayout,
+      flowLayout.numberOfColumns > 0
+    else { fatalError() }
 
-      let widthOfCells = collectionView.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right)
-      let widthOfSpacing = CGFloat(flowLayout.numberOfColumns - 1) * flowLayout.cellSpacing
-      let width = (widthOfCells - widthOfSpacing) / CGFloat(flowLayout.numberOfColumns)
-
+    let widthOfCells = collectionView.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right)
+      
+      //가운데 뛰는 만큼
+      let widthOfSpacing = CGFloat(flowLayout.numberOfColumns) * flowLayout.cellSpacing
+    let width = (widthOfCells - widthOfSpacing) / CGFloat(flowLayout.numberOfColumns)
+      
       return CGSize(width: width, height: width * flowLayout.ratioHeightToWidth)
-  //      return CGSize(width: view.frame.width, height: 150)
+//      return CGSize(width: view.frame.width, height: 150)
+  }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
-      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-          return 10
-      }
-      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-          return 2
-      }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
 }
 

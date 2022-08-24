@@ -1,19 +1,19 @@
 //
-//  CustomCell.swift
+//  DelPetButtonCell.swift
 //  NUGUGAE
 //
-//  Created by 박준하 on 2022/08/23.
+//  Created by 박준하 on 2022/08/24.
 //
 
 import Foundation
 import UIKit
 
-class CustomCell: UITableViewCell {
-    static let id = "CustomCell"
+class DelPetButtonCell: UITableViewCell {
+    static let id = "DelPetButtonCell"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        print("CustomCell")
+        print("DelPetButtonCell")
     }
     
     required init?(coder: NSCoder) {
@@ -21,9 +21,9 @@ class CustomCell: UITableViewCell {
     }
     
     let customButton: UIButton = {
-        let b = UIButton(type: .custom)
-        b.setTitle("asdf", for: .normal)
-        b.titleLabel?.text = "asdfghjkl"
-        return b
+        let a = UIButton(type: .custom)
+        a.setTitle("asdf", for: .normal)
+        a.titleLabel?.text = "asdfghjkl"
+        return a
     }()
 }

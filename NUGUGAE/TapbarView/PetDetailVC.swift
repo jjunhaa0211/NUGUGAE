@@ -37,7 +37,7 @@ class PetDetailViewController: UITableViewController {
 //UITableView DataSource, Delegate
 extension PetDetailViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 12
+        return 11
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,22 +51,20 @@ extension PetDetailViewController {
         case 1:
             return "age"
         case 2:
-            return "classification"
-        case 3:
             return "foundPlace"
-        case 4:
+        case 3:
             return "gender"
-        case 5:
+        case 4:
             return "gu"
-        case 6:
+        case 5:
             return "hairColor"
-        case 7:
+        case 6:
             return "memo"
-        case 8:
+        case 7:
             return "rescueDate"
-        case 9:
+        case 8:
             return "species"
-        case 10:
+        case 9:
             return "weight"
         default:
             return nil
@@ -86,35 +84,45 @@ extension PetDetailViewController {
             cell.textLabel?.text = pets!.age
             return cell
         case 2:
-            cell.textLabel?.text = "\(pets!.classification)"
-            return cell
-        case 3:
             cell.textLabel?.text = "\(pets!.foundPlace)"
             return cell
+        case 3:
+            if(pets!.gender == 1) {
+                cell.textLabel?.text = "수컷"
+            } else {
+                cell.textLabel?.text = "암컷"
+            }
+            return cell
         case 4:
-            cell.textLabel?.text = "\(pets!.gender)"
+            if(pets!.gu == 1){
+                cell.textLabel?.text = "동구"
+            } else if(pets!.gu == 2) {
+                cell.textLabel?.text = "중구"
+            }else if(pets!.gu == 3) {
+                cell.textLabel?.text = "서구"
+            }else if(pets!.gu == 4) {
+                cell.textLabel?.text = "유성구"
+            } else {
+                cell.textLabel?.text = "대덕구"
+            }
+
             return cell
         case 5:
-            cell.textLabel?.text = "\(pets!.gu)"
-            return cell
-        case 6:
             cell.textLabel?.text = "\(pets!.hairColor)"
             return cell
-        case 7:
+        case 6:
             cell.textLabel?.text = "\(pets!.memo)"
             return cell
-        case 8:
+        case 7:
             cell.textLabel?.text = "\(pets!.rescueDate)"
             return cell
-        case 9:
+        case 8:
             cell.textLabel?.text = "\(pets!.species)"
             return cell
-        case 10:
+        case 9:
             cell.textLabel?.text = "\(pets!.weight)"
             return cell
-        case 11:
-//            cell.textLabel?.text = "text click"
-//            return cell
+        case 10:
             let cell2 = tableView.dequeueReusableCell(withIdentifier: CustomCell.id, for: indexPath) as! CustomCell
             cell2.textLabel?.text = "                                  찜하기"
             cell2.backgroundColor = ColorB
@@ -127,7 +135,7 @@ extension PetDetailViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.section == 11) {
+        if(indexPath.section == 10) {
             print("찜하기")
             wishPost()
         }

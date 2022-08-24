@@ -15,6 +15,7 @@
 		0E1DA88828B4976700241C8C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DA88728B4976700241C8C /* UserCell.swift */; };
 		0E1DA89D28B4B9B400241C8C /* ShowMyPet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DA89C28B4B9B400241C8C /* ShowMyPet.swift */; };
 		0E1DA8A128B5076600241C8C /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DA8A028B5076600241C8C /* CustomCell.swift */; };
+		0E1DA8A328B65A0C00241C8C /* DelPetButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DA8A228B65A0C00241C8C /* DelPetButtonCell.swift */; };
 		0E3DD44328ADFA1C00DBF1C5 /* MainTapBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3DD44228ADFA1C00DBF1C5 /* MainTapBarVC.swift */; };
 		0E41E5D428ADB0E100F9A38F /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D328ADB0E100F9A38F /* FirstVC.swift */; };
 		0E41E5D628ADB12B00F9A38F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E5D528ADB12B00F9A38F /* LoginVC.swift */; };
@@ -43,6 +44,7 @@
 		0E1DA88728B4976700241C8C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		0E1DA89C28B4B9B400241C8C /* ShowMyPet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyPet.swift; sourceTree = "<group>"; };
 		0E1DA8A028B5076600241C8C /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		0E1DA8A228B65A0C00241C8C /* DelPetButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelPetButtonCell.swift; sourceTree = "<group>"; };
 		0E3DD44228ADFA1C00DBF1C5 /* MainTapBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapBarVC.swift; sourceTree = "<group>"; };
 		0E41E5D328ADB0E100F9A38F /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		0E41E5D528ADB12B00F9A38F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				0E1DA8A028B5076600241C8C /* CustomCell.swift */,
 				0E46CBA028AF1E1E00858422 /* MyCell.swift */,
+				0E1DA8A228B65A0C00241C8C /* DelPetButtonCell.swift */,
 				0E1DA88728B4976700241C8C /* UserCell.swift */,
 				0EF94C9F28AF5224005E22CB /* GridCollectionViewFlowLayout.swift */,
 			);
@@ -324,6 +327,7 @@
 				0E41E5E328ADD38200F9A38F /* APIProvider.swift in Sources */,
 				0E3DD44328ADFA1C00DBF1C5 /* MainTapBarVC.swift in Sources */,
 				0E46CBA128AF1E1E00858422 /* MyCell.swift in Sources */,
+				0E1DA8A328B65A0C00241C8C /* DelPetButtonCell.swift in Sources */,
 				0E1DA89D28B4B9B400241C8C /* ShowMyPet.swift in Sources */,
 				0E41E5D828ADB19700F9A38F /* SignUpVC.swift in Sources */,
 				0EF94CA028AF5224005E22CB /* GridCollectionViewFlowLayout.swift in Sources */,
