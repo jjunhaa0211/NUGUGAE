@@ -282,6 +282,7 @@ class SearchViewController: UIViewController {
         print("강아지 버튼 실행됨")
         getDogPetList()
     }
+
     func animalsButton() {
         animalButton.setTitle("animal", for: .normal)
         animalButton.setTitleColor(.white, for: .normal)
@@ -343,14 +344,16 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     else { fatalError() }
 
     let widthOfCells = collectionView.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right)
-    let widthOfSpacing = CGFloat(flowLayout.numberOfColumns - 1) * flowLayout.cellSpacing
+      
+      //가운데 뛰는 만큼
+      let widthOfSpacing = CGFloat(flowLayout.numberOfColumns) * flowLayout.cellSpacing
     let width = (widthOfCells - widthOfSpacing) / CGFloat(flowLayout.numberOfColumns)
-
-    return CGSize(width: width, height: width * flowLayout.ratioHeightToWidth)
+      
+      return CGSize(width: width, height: width * flowLayout.ratioHeightToWidth)
 //      return CGSize(width: view.frame.width, height: 150)
   }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 20
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 2
