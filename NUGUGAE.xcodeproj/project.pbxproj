@@ -112,7 +112,6 @@
 				0E46CB9B28AE8A5A00858422 /* UserVC.swift */,
 				0E1DA88528B496E100241C8C /* ShowPetDetailVC.swift */,
 				0E1DA88228B3947B00241C8C /* PetDetailVC.swift */,
-				0E1DA8A028B5076600241C8C /* CustomCell.swift */,
 			);
 			path = TapbarView;
 			sourceTree = "<group>";
@@ -128,14 +127,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0E46CB9F28AF1E0800858422 /* collectionView */ = {
+		0E46CB9F28AF1E0800858422 /* collectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				0E1DA8A028B5076600241C8C /* CustomCell.swift */,
 				0E46CBA028AF1E1E00858422 /* MyCell.swift */,
 				0E1DA88728B4976700241C8C /* UserCell.swift */,
 				0EF94C9F28AF5224005E22CB /* GridCollectionViewFlowLayout.swift */,
 			);
-			path = collectionView;
+			path = collectionViewCell;
 			sourceTree = "<group>";
 		};
 		0E9E10E72865734A0086D92C = {
@@ -170,7 +170,7 @@
 				0E1AACBE28AE715C000C5475 /* SearchPetList.swift */,
 				0E1AACBC28AE6F15000C5475 /* SavePet.swift */,
 				0E1DA89C28B4B9B400241C8C /* ShowMyPet.swift */,
-				0E46CB9F28AF1E0800858422 /* collectionView */,
+				0E46CB9F28AF1E0800858422 /* collectionViewCell */,
 				0E9E11012865734A0086D92C /* Info.plist */,
 			);
 			path = NUGUGAE;

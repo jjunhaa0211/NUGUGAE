@@ -276,7 +276,7 @@ class SignUpViewController : UIViewController {
         postsignUp()
     }
     func postsignUp() {
-            let url = "http://192.168.154.1:8080/api/auth/signup"
+            let url = "http://10.156.147.167:8080/api/auth/signup"
             var request = URLRequest(url: URL(string: url)!)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")

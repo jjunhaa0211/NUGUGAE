@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import Alamofire
 
 class PetDetailViewController: UITableViewController {
     
     var pets: SearchPetList?
+    
+    let ColorC = UIColor(named: "Color-c")
+    let ColorB = UIColor(named: "Color-b")
+    let ColorA = UIColor(named: "Color-a")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +68,6 @@ extension PetDetailViewController {
             return "species"
         case 10:
             return "weight"
-        case 11:
-            return "찜하기"
         default:
             return nil
         }
@@ -113,7 +116,9 @@ extension PetDetailViewController {
 //            cell.textLabel?.text = "text click"
 //            return cell
             let cell2 = tableView.dequeueReusableCell(withIdentifier: CustomCell.id, for: indexPath) as! CustomCell
-//            cell2.customButton.addTarget(cell2, action: #selector(clicked), for: .touchUpOutside)
+            cell2.textLabel?.text = "                                  찜하기"
+            cell2.backgroundColor = ColorB
+            cell2.tintColor = .white
             return cell2
         default:
             cell.textLabel?.text = "🍎"
@@ -124,6 +129,69 @@ extension PetDetailViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.section == 11) {
             print("찜하기")
+            wishPost()
+        }
+    }
+
+    
+    func wishPost() {
+            let AT : String? = KeyChain.read(key: Token.accessToken)
+            let RT : String? = KeyChain.read(key: Token.refreshToken)
+            let url = "http://10.156.147.167:8080/api/pet/save"
+            var request = URLRequest(url: URL(string: url)!)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.timeoutInterval = 10
+            var header = HTTPHeaders()
+            header.add(name: "Authorization", value: "Bearer \(AT!)")
+            header.add(name: "X-Refresh-Token", value: RT!)
+                                
+        // POST 로 보낼 정보
+    let params = ["adoptionStatusCd": "\(pets!.adoptionStatusCD)",
+                  "age": "\(pets!.age)",
+                  "classification": "\(pets!.classification)",
+                  "filePath": "\(pets!.filePath)",
+                  "foundPlace": "\(pets!.foundPlace)",
+                  "gender": "\(pets!.gender)",
+                  "gu": "\(pets!.gu)",
+                  "hairColor": "\(pets!.hairColor)",
+                  "memo": "\(pets!.memo)",
+                  "rescueDate": "\(pets!.rescueDate)",
+                  "species": "\(pets!.species)",
+                  "weight": "\(pets!.weight)"
+                 ] as Dictionary
+            
+        let jsonData = try! JSONSerialization.data(withJSONObject: params, options: [])
+        request.httpBody = jsonData
+
+        AF.request(url,method: .post,parameters: params, encoding: JSONEncoding.default, headers: header)
+            .responseString { (response) in
+                switch response.response?.statusCode {
+                case 200:
+                    print(params)
+                    debugPrint(response)
+                    print("url 경로 : \(request.url as Any)")
+                    print("✅POST 성공✅")
+                    let AlertMassge = UIAlertController(title: "알림", message: "찜하기 성공", preferredStyle: UIAlertController.Style.alert)
+                    let ActionMassge = UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil)
+                    
+                    AlertMassge.addAction(ActionMassge)
+                    self.present(AlertMassge, animated: true, completion: nil)
+                case 201:
+                    print(params)
+                    debugPrint(response)
+                    print("url 경로 : \(request.url as Any)")
+                    print("✅POST 성공✅")
+                    let AlertMassge = UIAlertController(title: "알림", message: "찜하기 성공", preferredStyle: UIAlertController.Style.alert)
+                    let ActionMassge = UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil)
+                    
+                    AlertMassge.addAction(ActionMassge)
+                    self.present(AlertMassge, animated: true, completion: nil)
+                default:
+                    print("🤯post 성공하지 못했습니다🤬")
+                    debugPrint(response)
+                    debugPrint(params)
+            }
         }
     }
 }

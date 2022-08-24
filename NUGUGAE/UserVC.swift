@@ -61,7 +61,7 @@ class UserViewController : UIViewController {
     
     private func showPetList() {
         
-        let url = "http://192.168.154.1:8080/api/pet/showMyPet"
+        let url = "http://10.156.147.167:8080/api/pet/showMyPet"
         let AT : String? = KeyChain.read(key: Token.accessToken)
         let header : HTTPHeaders = [
             "Authorization" : "Bearer \(AT!)"

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Alamofire
 
 class ShowPetDetailViewController: UITableViewController {
     
@@ -69,8 +69,6 @@ extension ShowPetDetailViewController {
             return "species"
         case 10:
             return "weight"
-        case 11:
-            return "찜하기"
         default:
             return nil
         }
