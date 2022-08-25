@@ -258,6 +258,7 @@ class SearchViewController: UIViewController {
     
     @objc func CatbuttonAction(sender: UIButton!){
         print("고양이 버튼 실행됨")
+        collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         getCatPetList()
     }
     func DogButton() {
@@ -290,6 +291,7 @@ class SearchViewController: UIViewController {
     
     @objc func DogbuttonAction(sender: UIButton!){
         print("강아지 버튼 실행됨")
+        collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         getDogPetList()
     }
 
@@ -320,6 +322,7 @@ class SearchViewController: UIViewController {
     
     @objc func animalbuttonAction(sender: UIButton!){
         print("동물 버튼 실행됨")
+        collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         getAnyPetList()
 
     }
