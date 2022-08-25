@@ -125,7 +125,7 @@ extension ShowPetDetailViewController {
             return cell
         case 10:
             let cell3 = tableView.dequeueReusableCell(withIdentifier: DelPetButtonCell.id, for: indexPath) as! DelPetButtonCell
-            cell3.textLabel?.text = "                                찜하기 취소"
+            cell3.textLabel?.text = "                               찜하기 취소"
             cell3.backgroundColor = ColorB
             cell3.tintColor = .white
             return cell3

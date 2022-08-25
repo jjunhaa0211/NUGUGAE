@@ -14,6 +14,9 @@ class UserViewController : UIViewController {
     var showList: ShowMyPet = ShowMyPet(pets: [])
 
     let ColorC = UIColor(named: "Color-c")
+    let ColorA = UIColor(named: "Color-a")
+    let ColorB = UIColor(named: "Color-b")
+    let ColorD = UIColor(named: "Color-d")
     
     let refresh = UIRefreshControl()
     
@@ -37,6 +40,40 @@ class UserViewController : UIViewController {
       return view
     }()
     
+    func userPetLabel() {
+        let textLabel = UILabel()
+        
+        view.addSubview(textLabel)
+        textLabel.text = "Add Pet List"
+        
+        textLabel.textColor = .white
+        
+        textLabel.font = UIFont.boldSystemFont(ofSize: 50)
+        
+        textLabel.snp.makeConstraints{
+            $0.height.equalTo(160)
+            $0.width.equalTo(200)
+            $0.trailing.equalTo(-10)
+            $0.top.equalTo(10)
+            $0.leading.equalTo(10)
+        }
+    }
+    func userPetView() {
+        let petView = UILabel()
+        
+        view.addSubview(petView)
+        
+        petView.backgroundColor = ColorA
+        
+        petView.snp.makeConstraints{
+            $0.height.equalTo(120)
+            $0.width.equalTo(220)
+            $0.trailing.equalTo(0)
+            $0.top.equalTo(0)
+            $0.leading.equalTo(0)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,6 +94,10 @@ class UserViewController : UIViewController {
         self.collectionView.delegate = self
         
         showPetList()
+        
+        userPetView()
+        
+        userPetLabel()
     }
     
     private func showPetList() {

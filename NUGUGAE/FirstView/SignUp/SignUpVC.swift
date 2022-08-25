@@ -253,7 +253,6 @@ class SignUpViewController : UIViewController {
         let ColorC = UIColor(named: "Color-c")
         SignUpButton.setTitle("Sign in", for: .normal)
         SignUpButton.backgroundColor = ColorC
-        SignUpButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(SignUpButton)
         
