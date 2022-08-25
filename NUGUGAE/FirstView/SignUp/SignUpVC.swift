@@ -43,7 +43,7 @@ class SignUpViewController : UIViewController {
         let firstButton = UIButton()
         view.addSubview(firstButton)
         let ColorB = UIColor(named: "Color-b")
-        firstButton.setTitle("If you have an account, go to login", for: .normal)
+        firstButton.setTitle("계정이 있으신가요?, 로그인 하러가기", for: .normal)
         firstButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         firstButton.setTitleColor(ColorB, for: .normal)
         firstButton.snp.makeConstraints {
@@ -185,7 +185,7 @@ class SignUpViewController : UIViewController {
         
         nameField.borderStyle = .none
         view.addSubview(nameField)
-        nameField.attributedPlaceholder = NSAttributedString(string: "please write name...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        nameField.attributedPlaceholder = NSAttributedString(string: "이름을 입력해주세요..", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         nameField.textColor = .black
         nameField.snp.makeConstraints{
             $0.height.equalTo(40)
@@ -197,7 +197,7 @@ class SignUpViewController : UIViewController {
         
         idFidld.borderStyle = .none
         view.addSubview(idFidld)
-        idFidld.attributedPlaceholder = NSAttributedString(string: "please write id...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        idFidld.attributedPlaceholder = NSAttributedString(string: "id를 입력해주세요..", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         idFidld.textColor = .black
         idFidld.snp.makeConstraints{
             $0.height.equalTo(40)
@@ -208,7 +208,7 @@ class SignUpViewController : UIViewController {
         }
         
         passworldField.borderStyle = .none
-        passworldField.attributedPlaceholder = NSAttributedString(string: "please write password...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        passworldField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력해두세요..", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         passworldField.textColor = .black
         passworldField.isSecureTextEntry = true
         view.addSubview(passworldField)
@@ -222,7 +222,7 @@ class SignUpViewController : UIViewController {
         
         emailField.borderStyle = .none
         view.addSubview(emailField)
-        emailField.attributedPlaceholder = NSAttributedString(string: "please write your email...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        emailField.attributedPlaceholder = NSAttributedString(string: "이메일을 입력해주세요..", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         emailField.textColor = .black
         emailField.snp.makeConstraints{
             $0.height.equalTo(40)
@@ -236,7 +236,7 @@ class SignUpViewController : UIViewController {
     func emailFieldView() {
         emailCheckField.borderStyle = .none
         view.addSubview(emailCheckField)
-        emailCheckField.attributedPlaceholder = NSAttributedString(string: "please write your emailCheck Code...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        emailCheckField.attributedPlaceholder = NSAttributedString(string: "인종번호를 적어주세요..", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         emailCheckField.textColor = .red
         emailCheckField.snp.makeConstraints{
             $0.height.equalTo(40)
@@ -251,7 +251,7 @@ class SignUpViewController : UIViewController {
     func configureSignUpButton() {
         let SignUpButton = UIButton()
         let ColorC = UIColor(named: "Color-c")
-        SignUpButton.setTitle("Sign in", for: .normal)
+        SignUpButton.setTitle("회원가입", for: .normal)
         SignUpButton.backgroundColor = ColorC
         
         view.addSubview(SignUpButton)

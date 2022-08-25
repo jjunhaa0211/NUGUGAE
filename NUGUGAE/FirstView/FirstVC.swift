@@ -38,7 +38,7 @@ class FirstViewController : UIViewController {
         let loginButton = UIButton()
         let ColorC = UIColor(named: "Color-c")
         loginButton.backgroundColor = ColorC
-        loginButton.setTitle("Login", for: .normal)
+        loginButton.setTitle("로그인", for: .normal)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         
@@ -72,7 +72,7 @@ class FirstViewController : UIViewController {
         let signUpButton = UIButton()
         let ColorA = UIColor(named: "Color-a")
         signUpButton.backgroundColor = ColorA
-        signUpButton.setTitle("Sign Up", for: .normal)
+        signUpButton.setTitle("회원가입", for: .normal)
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
 //        signUpButton.contentHorizontalAlignment = .left
         view.addSubview(signUpButton)

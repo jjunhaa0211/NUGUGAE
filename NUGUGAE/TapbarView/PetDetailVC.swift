@@ -106,7 +106,11 @@ extension PetDetailViewController {
             cell.textLabel?.text = "\(pets!.hairColor)"
             return cell
         case 5:
+            if(pets!.memo == "null") {
+                cell.textLabel?.text = "특이사항이 없음"
+            } else {
             cell.textLabel?.text = "\(pets!.memo)"
+            }
             return cell
         case 6:
             cell.textLabel?.text = "\(pets!.rescueDate) 발견"

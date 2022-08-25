@@ -133,7 +133,7 @@ class LoginViewController : UIViewController {
         
         emailField.borderStyle = .none
         view.addSubview(emailField)
-        emailField.attributedPlaceholder = NSAttributedString(string: "please write Gamil...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        emailField.attributedPlaceholder = NSAttributedString(string: "gmail을 입력해주세요..", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         emailField.textColor = .black
         emailField.snp.makeConstraints{
             $0.height.equalTo(40)
@@ -144,7 +144,7 @@ class LoginViewController : UIViewController {
         }
         
         passworldField.borderStyle = .none
-        passworldField.attributedPlaceholder = NSAttributedString(string: "please write Password...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        passworldField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 적어주세요..", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         passworldField.textColor = .black
         passworldField.isSecureTextEntry = true
         view.addSubview(passworldField)
@@ -161,7 +161,7 @@ class LoginViewController : UIViewController {
         let loginButton = UIButton()
         let ColorA = UIColor(named: "Color-a")
         let ColorC = UIColor(named: "Color-c")
-        loginButton.setTitle("Sign in", for: .normal)
+        loginButton.setTitle("로그인", for: .normal)
         loginButton.setTitleColor(ColorC, for: .normal)
         loginButton.backgroundColor = ColorA
         loginButton.layer.cornerRadius = 10
@@ -191,7 +191,7 @@ class LoginViewController : UIViewController {
         
         let signUpButton = UIButton()
         let ColorB = UIColor(named: "Color-b")
-        signUpButton.setTitle("Sign Up", for: .normal)
+        signUpButton.setTitle("회원가입", for: .normal)
         signUpButton.setTitleColor(ColorB, for: .normal)
         signUpButton.backgroundColor = .white
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
