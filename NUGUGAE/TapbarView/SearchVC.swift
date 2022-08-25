@@ -73,7 +73,7 @@ class SearchViewController: UIViewController {
     }
     private func getDogPetList() {
         
-        let url = "http://192.168.78.1:8080/api/pet/search?s=1&p=1"
+        let url = "http://10.156.147.167:8080/api/pet/search?s=1&p=1"
         let AT : String? = KeyChain.read(key: Token.accessToken)
         let header : HTTPHeaders = [
             "Authorization" : "Bearer \(AT!)"
@@ -125,7 +125,7 @@ class SearchViewController: UIViewController {
     }
     private func getCatPetList() {
         
-        let url = "http://192.168.78.1:8080/api/pet/search?s=2&p=1"
+        let url = "http://10.156.147.167:8080/api/pet/search?s=2&p=1"
         let AT : String? = KeyChain.read(key: Token.accessToken)
         let header : HTTPHeaders = [
             "Authorization" : "Bearer \(AT!)"
@@ -178,7 +178,7 @@ class SearchViewController: UIViewController {
     
     private func getAnyPetList() {
         
-        let url = "http://192.168.78.1:8080/api/pet/search?s=3&p=1"
+        let url = "http://10.156.147.167:8080/api/pet/search?s=3&p=1"
         let AT : String? = KeyChain.read(key: Token.accessToken)
         let header : HTTPHeaders = [
             "Authorization" : "Bearer \(AT!)"

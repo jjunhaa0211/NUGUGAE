@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Then
 import Alamofire
 
 class UserViewController : UIViewController {
@@ -15,6 +14,8 @@ class UserViewController : UIViewController {
     var showList: ShowMyPet = ShowMyPet(pets: [])
 
     let ColorC = UIColor(named: "Color-c")
+    
+    let refresh = UIRefreshControl()
     
     private let gridFlowLayout: GridCollectionViewFlowLayout = {
       let layout = GridCollectionViewFlowLayout()
@@ -38,6 +39,9 @@ class UserViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.initRefresh()
+        
         view.backgroundColor = .white
         
         self.view.addSubview(self.collectionView)
@@ -57,7 +61,7 @@ class UserViewController : UIViewController {
     
     private func showPetList() {
         
-        let url = "http://192.168.78.1:8080/api/pet/showMyPet"
+        let url = "http://10.156.147.167:8080/api/pet/showMyPet"
         let AT : String? = KeyChain.read(key: Token.accessToken)
         let header : HTTPHeaders = [
             "Authorization" : "Bearer \(AT!)"
@@ -80,9 +84,9 @@ class UserViewController : UIViewController {
                         print("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎")
                         self.collectionView.reloadData()
                     } catch {
-                        print("ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ")
+                        print("🤬🤬🤬🤬🤬🤬🤬")
                         print(error)
-                        print("ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ")
+                        print("🥵🥵🥵🥵🥵🥵🥵")
                     }
                     
                     print("")
@@ -158,3 +162,28 @@ extension UserViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//새로 고침
+extension UserViewController {
+    
+    func initRefresh() {
+        refresh.addTarget(self, action: #selector(refreshTable(refresh:)), for: .valueChanged)
+        refresh.backgroundColor = UIColor.clear
+        self.collectionView.refreshControl = refresh
+    }
+ 
+    @objc func refreshTable(refresh: UIRefreshControl) {
+        print("새로고침")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.collectionView.reloadData()
+            self.showPetList()
+            refresh.endRefreshing()
+        }
+    }
+
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if(velocity.y < -0.1) {
+            self.refreshTable(refresh: self.refresh)
+        }
+    }
+ 
+}

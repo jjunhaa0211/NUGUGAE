@@ -125,7 +125,7 @@ extension ShowPetDetailViewController {
             return cell
         case 10:
             let cell3 = tableView.dequeueReusableCell(withIdentifier: DelPetButtonCell.id, for: indexPath) as! DelPetButtonCell
-            cell3.textLabel?.text = "                                  찜하기"
+            cell3.textLabel?.text = "                                찜하기 취소"
             cell3.backgroundColor = ColorB
             cell3.tintColor = .white
             return cell3
@@ -137,7 +137,41 @@ extension ShowPetDetailViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.section == 10) {
             print("삭제함 ㅅㄱ")
+            deletePet()
         }
     }
     
+    
+    func deletePet() {
+            let AT : String? = KeyChain.read(key: Token.accessToken)
+            let RT : String? = KeyChain.read(key: Token.refreshToken)
+        let url = "http://10.156.147.167:8080/api/pet/deleteMyPet?id=\(pets!.id)"
+            var request = URLRequest(url: URL(string: url)!)
+            request.httpMethod = "DELETE"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.timeoutInterval = 10
+            var header = HTTPHeaders()
+            header.add(name: "Authorization", value: "Bearer \(AT!)")
+            header.add(name: "X-Refresh-Token", value: RT!)
+            
+
+        AF.request(url,method: .delete, encoding: JSONEncoding.default, headers: header)
+            .responseString { (response) in
+                switch response.response?.statusCode {
+                case 200:
+                    debugPrint(response)
+                    print("url 경로 : \(request.url as Any)")
+                    print("✅POST 성공✅")
+
+                    let AlertMassge = UIAlertController(title: "알림", message: "취소 성공", preferredStyle: UIAlertController.Style.alert)
+                    let ActionMassge = UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil)
+                    
+                    AlertMassge.addAction(ActionMassge)
+                    self.present(AlertMassge, animated: true, completion: nil)
+                default:
+                    print("🤯post 성공하지 못했습니다🤬")
+                    debugPrint(response)
+            }
+        }
+    }
 }

@@ -30,7 +30,7 @@ class LoginViewController : UIViewController {
     }
     
     func postLogin() {
-            let url = "http://192.168.78.1:8080/api/auth/login"
+            let url = "http://10.156.147.167:8080/api/auth/login"
             var request = URLRequest(url: URL(string: url)!)
         
             request.httpMethod = "POST"
@@ -133,7 +133,7 @@ class LoginViewController : UIViewController {
         
         emailField.borderStyle = .none
         view.addSubview(emailField)
-        emailField.attributedPlaceholder = NSAttributedString(string: "please write Id...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        emailField.attributedPlaceholder = NSAttributedString(string: "please write Gamil...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         emailField.textColor = .black
         emailField.snp.makeConstraints{
             $0.height.equalTo(40)
@@ -144,7 +144,7 @@ class LoginViewController : UIViewController {
         }
         
         passworldField.borderStyle = .none
-        passworldField.attributedPlaceholder = NSAttributedString(string: "please write password...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        passworldField.attributedPlaceholder = NSAttributedString(string: "please write Password...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         passworldField.textColor = .black
         passworldField.isSecureTextEntry = true
         view.addSubview(passworldField)
