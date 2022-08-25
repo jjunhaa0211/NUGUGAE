@@ -74,6 +74,36 @@ class UserViewController : UIViewController {
         }
     }
     
+    func outButton() {
+        let outButton = UIButton()
+        outButton.setImage(UIImage(systemName: "rectangle.portrait.and.arrow.right"), for: .normal)
+        
+        outButton.tintColor = .white
+        
+        view.addSubview(outButton)
+        
+        outButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        outButton.layer.cornerRadius = 10
+        
+        outButton.snp.makeConstraints{
+            $0.height.equalTo(120)
+            $0.width.equalTo(100)
+            $0.trailing.equalTo(330)
+            $0.top.equalTo(30)
+            $0.leading.equalTo(-30)
+        }
+        
+        outButton.addTarget(self, action: #selector(SignUpbuttonAction), for: .touchUpInside)
+        
+        }
+    
+    @objc func SignUpbuttonAction(sender: UIButton!){
+        print("로그 아웃")
+        let goToFrstTabBarVC = FirstViewController()
+        goToFrstTabBarVC.modalPresentationStyle = .fullScreen
+        self.present(goToFrstTabBarVC, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -98,6 +128,8 @@ class UserViewController : UIViewController {
         userPetView()
         
         userPetLabel()
+        
+        outButton()
     }
     
     private func showPetList() {
